@@ -1,16 +1,27 @@
 {% extends "base.html" %} {% block content %}
 
+    <!-- Add this block to display messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- End of messages block -->
+
 <h1>Daftar Mata Kuliah</h1>
-    <table>
+    <table class="table table-bordered table-hover">
         <thead>
-            <tr>
+            <tr data-widget="expandable-table" aria-expanded="false">
                 <th>Kode Mata Kuliah</th>
                 <th>Nama Mata Kuliah</th>
                 <th>Jumlah SKS</th>
                 <th>Program Studi</th>
                 <th>Kelas</th>
                 <th>Nama Pengajar</th>
-                <th>Aksi</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -24,13 +35,66 @@
                 <td>{{ mata_kuliah.nama_pengajar }}</td>
                 <td>
                     <a href="{% url 'edit_mata_kuliah' mata_kuliah.pk %}">Edit</a> |
-                    <a href="{% url 'hapus_mata_kuliah' mata_kuliah.pk %}">Hapus</a>
+                    <a href="#" class="hapus-matkul-link" data-pk="{{ mata_kuliah.pk }}">Hapus</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'tambah_mata_kuliah' %}">Tambah Mata Kuliah</a>
+    <a href="{% url 'tambah_mata_kuliah' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+
+    <!-- Bootstrap Modal untuk konfirmasi hapus -->
+    <div class="modal fade" id="hapusMatkulModal" tabindex="-1" role="dialog" aria-labelledby="hapusMatkulModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hapusMatkulModalLabel">Konfirmasi Hapus Mata Kuliah</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda yakin ingin menghapus mata kuliah ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="hapusMatkulButton">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tambahkan JavaScript untuk menampilkan modal konfirmasi hapus saat tombol hapus diklik
+        const hapusMatkulLinks = document.querySelectorAll('.hapus-matkul-link');
+        const hapusMatkulModal = document.getElementById('hapusMatkulModal');
+        const hapusMatkulButton = document.getElementById('hapusMatkulButton');
+
+        hapusMatkulLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const pk = this.getAttribute('data-pk');
+                hapusMatkulButton.setAttribute('data-pk', pk);
+                $('#hapusMatkulModal').modal('show');
+            });
+        });
+
+        hapusMatkulButton.addEventListener('click', function () {
+            const pk = this.getAttribute('data-pk');
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = `{% url 'hapus_matkul' 0 %}`.replace('0', pk);
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = 'csrfmiddlewaretoken';
+            csrfToken.value = '{{ csrf_token }}';
+            form.appendChild(csrfToken);
+            document.body.appendChild(form);
+            form.submit();
+        });
+    </script>
 </body>
 
 {% endblock content %}

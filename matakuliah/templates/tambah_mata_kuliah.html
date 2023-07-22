@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Tambah MataKuliah</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+              {{ form.kode_mata_kuliah.label_tag }}
+              {{ form.kode_mata_kuliah }}
+            </div>
+            <div class="form-group">
+              {{ form.nama_mata_kuliah.label_tag }}
+              {{ form.nama_mata_kuliah }}
+            </div>
+            <div class="form-group">
+              {{ form.jumlah_sks.label_tag }}
+              {{ form.jumlah_sks }}
+            </div>
+            <div class="form-group">
+              {{ form.program_studi.label_tag }}
+              {{ form.program_studi }}
+            </div>
+            <div class="form-group">
+              {{ form.kelas.label_tag }}
+              {{ form.kelas }}
+            </div>
+            <div class="form-group">
+              {{ form.nama_pengajar.label_tag }}
+              {{ form.nama_pengajar }}
+            </div>
+          </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+    <a href="{% url 'matakuliah' %}">Kembali ke Daftar Mata Kuliah</a>
+
+{% endblock content %}

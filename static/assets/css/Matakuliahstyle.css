@@ -1,0 +1,9 @@
+/* styles.css */
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    font-size: 50px; /* Sesuaikan ukuran font sesuai keinginan Anda */
+    color: black; /* Ubah warna font menjadi hitam */
+}
