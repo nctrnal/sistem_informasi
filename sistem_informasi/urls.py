@@ -10,6 +10,9 @@ urlpatterns = [
     path('angkatan/', include('angkatan.urls')),
     path('wisudah/', include('wisudah_yudisium.urls')),
     path('pengajar/', include('dosen_pengajar.urls')),
+    path('absen/', include('absen.urls')),
+    path('matakuliah/', include('matakuliah.urls')),
+    path('dosenwali/', include('dosenwali.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

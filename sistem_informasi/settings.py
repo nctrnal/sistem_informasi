@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'angkatan',
     'wisudah_yudisium',
     'dosen_pengajar',
-
+    'absen',
+    'matakuliah',
+    'dosenwali',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +84,11 @@ WSGI_APPLICATION = 'sistem_informasi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'sistem_informasi',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',         # Ganti 'localhost' dengan host basis data Anda
+        'PORT': '5432',
     }
 }
 
