@@ -1,9 +1,108 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum numquam
-  dignissimos dolores libero unde, ab rem, non repellat aspernatur aperiam
-  labore autem delectus? Delectus enim libero obcaecati numquam ullam modi!
-</h1>
+    <!-- Add this block to display messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- End of messages block -->
+
+<h1>Daftar Mata Kuliah</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Foto</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Angkatan</th>
+                <th>Semester</th>
+                <th>Agama</th>
+                <th>Beasiswa</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mahasiswa in mahasiswa_list %}
+            <tr>
+                <td>{{ mahasiswa.foto }}</td>
+                <td>{{ mahasiswa.nim }}</td>
+                <td>{{ mahasiswa.nama }}</td>
+                <td>{{ mahasiswa.jk }}</td>
+                <td>{{ mahasiswa.tempat_lahir }}</td>
+                <td>{{ mahasiswa.tanggal_lahir }}</td>
+                <td>{{ mahasiswa.angkatan }}</td>
+                <td>{{ mahasiswa.semester }}</td>
+                <td>{{ mahasiswa.agama }}</td>
+                <td>{{ mahasiswa.beasiswa }}</td>
+                <td>
+                    <a href="{% url 'edit_mahasiswa' mahasiswa.pk %}" class="btn btn-success">Edit</a> |
+                    <a href="#" class="hapus-mahasiswa-link btn btn-danger" data-pk="{{ mahasiswa.pk }}">Hapus</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'tambah_mahasiswa' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+
+    <!-- Bootstrap Modal untuk konfirmasi hapus -->
+    <div class="modal fade" id="hapusMahasiswaModal" tabindex="-1" role="dialog" aria-labelledby="hapusMahasiswaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hapusMahasiswaModalLabel">Konfirmasi Hapus Mahasiswa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda yakin ingin menghapus Mahasiswa ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="hapusMahasiswaButton">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tambahkan JavaScript untuk menampilkan modal konfirmasi hapus saat tombol hapus diklik
+        const hapusMatkulLinks = document.querySelectorAll('.hapus-mahasiswa-link');
+        const hapusMatkulModal = document.getElementById('hapusMahasiswaModal');
+        const hapusMatkulButton = document.getElementById('hapusMahasiswaButton');
+
+        hapusMatkulLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const pk = this.getAttribute('data-pk');
+                hapusMatkulButton.setAttribute('data-pk', pk);
+                $('#hapusMahasiswaModal').modal('show');
+            });
+        });
+
+        hapusMatkulButton.addEventListener('click', function () {
+            const pk = this.getAttribute('data-pk');
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = `{% url 'hapus_mahasiswa' 0 %}`.replace('0', pk);
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = 'csrfmiddlewaretoken';
+            csrfToken.value = '{{ csrf_token }}';
+            form.appendChild(csrfToken);
+            document.body.appendChild(form);
+            form.submit();
+        });
+    </script>
+</body>
 
 {% endblock content %}

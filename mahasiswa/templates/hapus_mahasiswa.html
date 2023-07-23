@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Konfirmasi Hapus Mahasiswa</h1>
+<p>Anda yakin ingin menghapus mata kuliah "{{ mahasiswa.nama }}"?</p>
+<form id="hapus-matkul-form" method="post">
+  {% csrf_token %}
+  <button type="submit">Hapus</button>
+</form>
+<a href="{% url 'mahasiswa' %}">Batal</a>
+
+<script>
+  // Tambahkan JavaScript untuk mengirim POST request saat tombol hapus diklik
+  const hapusForm = document.getElementById("hapus-mahasiswa-form");
+  hapusForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const confirmDelete = confirm(
+      "Apakah Anda yakin ingin menghapus mahasiswa ini?"
+    );
+    if (confirmDelete) {
+      fetch('{% url "hapus_mahasiswa" mahasiswa.pk %}', {
+        method: "POST",
+        headers: { "X-CSRFToken": "{{ csrf_token }}" },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
+            alert("Mahasiswa berhasil dihapus.");
+            window.location.href = '{% url "matakuliah" %}';
+          } else {
+            alert("Terjadi kesalahan saat menghapus {{ mahasiswa.nama }}.");
+          }
+        })
+        .catch((error) => {
+          alert("Terjadi kesalahan saat menghapus mahasiswa.");
+          console.error(error);
+        });
+    }
+  });
+</script>
+
+{% endblock content %}
