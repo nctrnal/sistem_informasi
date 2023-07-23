@@ -16,7 +16,7 @@ def edit_mahasiswa(request, pk):
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
 
     if request.method == 'POST':
-        form = MahasiswaForm(request.POST, instance=mahasiswa)
+        form = MahasiswaForm(request.POST, request.FILES, instance=mahasiswa)
         if form.is_valid():
             form.save()
             return redirect('mahasiswa')
@@ -46,7 +46,7 @@ def hapus_mahasiswa(request, pk):
 
 def tambah_mahasiswa(request):
     if request.method == 'POST':
-        form = MahasiswaForm(request.POST)
+        form = MahasiswaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             # Ganti 'daftar_mahasiswa' dengan nama URL untuk halaman daftar mata kuliah

@@ -1,4 +1,12 @@
 /* styles.css */
+
+/* USER */
+/* image user */
+#foto_mhs_tbl {
+  width: 100px;
+  height: 100px;
+}
+
 .add-button {
   position: fixed;
   bottom: 20px;
@@ -9,7 +17,16 @@
 }
 
 .table {
-  justify-content: center;
-  vertical-align: center;
+  vertical-align: middle;
   text-align: center;
+  table-layout: auto;
+}
+
+/* FORM */
+.form-control {
+  width: 400px;
+}
+
+#tanggal_lahir {
+  width: 300px;
 }

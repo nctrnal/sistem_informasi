@@ -1,9 +1,15 @@
 from django.db import models
 
 
+def user_directory_path(instance, filename):
+    # Untuk menyimpan foto dengan nama berdasarkan username pengguna
+    return f'user_{instance.nama}/{filename}'
+
+
 class Mahasiswa(models.Model):
     nim = models.IntegerField(primary_key=True)
-    foto = models.CharField(blank=True, null=True, max_length=1000)
+    foto = models.ImageField(upload_to='uploads/profile/',
+                             default='default.png')
     nama = models.CharField(max_length=100)
     tempat_lahir = models.CharField(max_length=100)
     tanggal_lahir = models.DateField()

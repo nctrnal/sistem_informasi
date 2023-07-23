@@ -10,7 +10,7 @@
     {% endif %}
     <!-- End of messages block -->
 
-<h1>Daftar Mata Kuliah</h1>
+<h1>Daftar {{ title }}</h1>
     <table class="table table-bordered table-hover">
         <thead>
             <tr data-widget="expandable-table" aria-expanded="false">
@@ -31,7 +31,7 @@
         <tbody>
             {% for mahasiswa in mahasiswa_list %}
             <tr>
-                <td>{{ mahasiswa.foto }}</td>
+                <td><img id="foto_mhs_tbl" src="/images/{{ mahasiswa.foto }}" alt="{{ mahasiswa.nama }}"></td>
                 <td>{{ mahasiswa.nim }}</td>
                 <td>{{ mahasiswa.nama }}</td>
                 <td>{{ mahasiswa.jk }}</td>

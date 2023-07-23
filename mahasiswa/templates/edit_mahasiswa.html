@@ -4,7 +4,7 @@
   <div class="card-header">
     <h3 class="card-title">Tambah Mahasiswa</h3>
   </div>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="card-body">
       <div class="form-group">{{ form.nim.label_tag }} {{ form.nim }}</div>
