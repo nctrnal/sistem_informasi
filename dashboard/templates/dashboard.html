@@ -1,1 +1,114 @@
-{% extends "base.html" %} {% block content %} {% endblock content %}
+{% extends "base.html" %} {% block content %}
+
+<!-- BAR CHART -->
+<!-- bar_chart.html -->
+<h1>Bar Chart</h1>
+<canvas id="myBarChart"></canvas>
+
+<!-- BOX -->
+
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{ total_mhs }}</h3>
+
+        <p>Mahasiswa</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-user"></i>
+      </div>
+      <a href="mahasiswa" class="small-box-footer"
+        >More info <i class="fas fa-arrow-circle-right"></i
+      ></a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>150</h3>
+
+        <p>Mahasiswa Aktif</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-user-check"></i>
+      </div>
+      <a href="#" class="small-box-footer"
+        >More info <i class="fas fa-arrow-circle-right"></i
+      ></a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>150</h3>
+
+        <p>Dosen</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-chalkboard-teacher"></i>
+      </div>
+      <a href="#" class="small-box-footer"
+        >More info <i class="fas fa-arrow-circle-right"></i
+      ></a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{ prog_studi }}</h3>
+
+        <p>Program Studi</p>
+      </div>
+      <div class="icon">
+        <i class="far fa-list-alt"></i>
+      </div>
+      <a href="#" class="small-box-footer"
+        >More info <i class="fas fa-arrow-circle-right"></i
+      ></a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% load static %}
+<script>
+    var data = {{ data | safe }};
+    var ctx = document.getElementById("myBarChart").getContext("2d");
+    var myBarChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: Array.from({ length: data.data1.length }, (_, i) => i + 2), // Label untuk sumbu X, Anda dapat mengganti sesuai dengan kebutuhan
+      datasets: [
+        {
+          label: "Mahasiswa",
+          data: data.data1, // Data dari Model1 yang telah digabungkan dari view
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Program Studi",
+          data: data.data2, // Data dari Model2 yang telah digabungkan dari view
+          backgroundColor: "rgba(192, 75, 192, 0.2)",
+          borderColor: "rgba(192, 75, 192, 1)",
+          borderWidth: 1,
+        },
+        // Tambahkan dataset lain untuk data dari model lain sesuai kebutuhan
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  console.log(data);
+</script>
+{% endblock content %}

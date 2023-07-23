@@ -11,11 +11,13 @@ class Mahasiswa(models.Model):
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
     nama = models.CharField(max_length=100)
+    jk = models.CharField(max_length=1)
     tempat_lahir = models.CharField(max_length=100)
     tanggal_lahir = models.DateField()
+    alamat = models.CharField(max_length=1000)
+    email = models.CharField(max_length=1000)
     angkatan = models.IntegerField()
     semester = models.IntegerField()
-    jk = models.CharField(max_length=1)
     agama = models.CharField(max_length=20)
     beasiswa = models.CharField(max_length=20)
 
