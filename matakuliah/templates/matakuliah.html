@@ -34,8 +34,8 @@
                 <td>{{ mata_kuliah.kelas }}</td>
                 <td>{{ mata_kuliah.nama_pengajar }}</td>
                 <td>
-                    <a href="{% url 'edit_mata_kuliah' mata_kuliah.pk %}">Edit</a> |
-                    <a href="#" class="hapus-matkul-link" data-pk="{{ mata_kuliah.pk }}">Hapus</a>
+                    <a href="{% url 'edit_mata_kuliah' mata_kuliah.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                    <a href="#" class="hapus-matkul-link btn btn-danger" data-pk="{{ mata_kuliah.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             {% endfor %}
@@ -94,6 +94,54 @@
             document.body.appendChild(form);
             form.submit();
         });
+
+        //untuk table
+(function() {
+	'use strict';
+
+var TableFilter = (function() {
+ var Arr = Array.prototype;
+		var input;
+  
+		function onInputEvent(e) {
+			input = e.target;
+			var table1 = document.getElementsByClassName(input.getAttribute('data-table'));
+			Arr.forEach.call(table1, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, filter);
+				});
+			});
+		}
+
+		function filter(row) {
+			var text = row.textContent.toLowerCase();
+       //console.log(text);
+      var val = input.value.toLowerCase();
+      //console.log(val);
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = onInputEvent;
+				});
+			}
+		};
+ 
+	})();
+
+  console.log(document.readyState);
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+      console.log(document.readyState);
+			TableFilter.init();
+		}
+	});
+  
+ TableFilter.init(); 
+})();
     </script>
 </body>
 
