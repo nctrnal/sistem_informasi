@@ -2,7 +2,7 @@
 
 /* USER */
 /* image user */
-#foto_mhs_tbl {
+#foto_tbl {
   width: 100px;
   height: 100px;
 }
@@ -29,4 +29,12 @@
 
 #tanggal_lahir {
   width: 300px;
+}
+
+#jk {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
 }
