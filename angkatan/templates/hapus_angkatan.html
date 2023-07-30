@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Konfirmasi Hapus Angkatan</h1>
+    <p>Anda yakin ingin menghapus angkatan "{{ angkatan.nama }}"?</p>
+    <form id="hapus-angkatan-form" method="post">
+        {% csrf_token %}
+        <button type="submit">Hapus</button>
+    </form>
+    <a href="{% url 'angkatan' %}">Batal</a>
+
+    <script>
+        // Tambahkan JavaScript untuk mengirim POST request saat tombol hapus diklik
+        const hapusForm = document.getElementById('hapus-angkatan-form');
+        hapusForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const confirmDelete = confirm("Apakah Anda yakin ingin menghapus angkatan ini?");
+            if (confirmDelete) {
+                fetch('{% url "hapus_angkatan" angkatan.pk %}', {
+                    method: 'POST',
+                    headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert("Angkatan berhasil dihapus.");
+                        window.location.href = '{% url "angkatan" %}';
+                    } else {
+                        alert("Terjadi kesalahan saat menghapus angkatan.");
+                    }
+                })
+                .catch(error => {
+                    alert("Terjadi kesalahan saat menghapus angkatan.");
+                    console.error(error);
+                });
+            }
+        });
+    </script>
+
+{% endblock content %}
