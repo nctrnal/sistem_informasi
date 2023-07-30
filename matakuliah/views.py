@@ -6,7 +6,7 @@ from django.contrib import messages
 
 def matakuliah(request):
     context = {
-        'title': 'Mata kuliah',
+        'title': 'Mata Kuliah',
         'mata_kuliah_list': MataKuliah.objects.all()
     }
     return render(request, 'matakuliah.html', context)
@@ -25,7 +25,7 @@ def edit_mata_kuliah(request, pk):
 
     # Konteks untuk halaman edit_matkul.html
     context = {
-        'title': 'Mata kuliah',
+        'title': 'Mata Kuliah',
         'form': form,
     }
 
@@ -56,7 +56,7 @@ def tambah_mata_kuliah(request):
 
     # Konteks untuk halaman edit_matkul.html
     context = {
-        'title': 'Mata kuliah',
+        'title': 'Mata Kuliah',
         'form': form,
     }
     return render(request, 'tambah_mata_kuliah.html', context)
