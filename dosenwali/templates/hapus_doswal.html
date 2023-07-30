@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Konfirmasi Hapus {{ title }}</h1>
+<p>Anda yakin ingin menghapus dosen wali "{{ doswal.nama_doswal }}"?</p>
+<form id="hapus-doswal-form" method="post">
+  {% csrf_token %}
+  <button type="submit">Hapus</button>
+</form>
+<a href="{% url 'doswal' %}">Batal</a>
+
+<script>
+  // Tambahkan JavaScript untuk mengirim POST request saat tombol hapus diklik
+  const hapusForm = document.getElementById("hapus-doswal-form");
+  hapusForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const confirmDelete = confirm(
+      "Apakah Anda yakin ingin menghapus dosen wali ini?"
+    );
+    if (confirmDelete) {
+      fetch('{% url "hapus_doswal" doswal.pk %}', {
+        method: "POST",
+        headers: { "X-CSRFToken": "{{ csrf_token }}" },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
+            alert("Dosen wali berhasil dihapus.");
+            window.location.href = '{% url "dosenwali" %}';
+          } else {
+            alert("Terjadi kesalahan saat menghapus {{ doswal.nama_doswal }}.");
+          }
+        })
+        .catch((error) => {
+          alert("Terjadi kesalahan saat menghapus dosen wali.");
+          console.error(error);
+        });
+    }
+  });
+</script>
+
+{% endblock content %}

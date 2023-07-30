@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from mahasiswa.models import Mahasiswa
 from matakuliah.models import MataKuliah
+from dosenwali.models import DosenWaliModel
 
 
 def index(request):
 
     total_mhs = Mahasiswa.objects.count()
+    total_dosen = DosenWaliModel.objects.count()
     prog_studi = MataKuliah.objects.values_list(
         'program_studi', flat=True).distinct().count()
 
@@ -21,6 +23,7 @@ def index(request):
         'title': 'Dashboard',
         'total_mhs': total_mhs,
         'prog_studi': prog_studi,
+        'total_dosen': total_dosen,
         'data': data,
     }
     return render(request, 'dashboard.html', context)

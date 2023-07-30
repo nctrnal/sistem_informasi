@@ -14,8 +14,8 @@ class DosenPengajarModel(models.Model):
     ]
 
     jenis_kelamin = [
-        ('Laki-Laki', 'L'),
-        ('Perempuan', 'P'),
+        ('L', 'Laki-Laki'),
+        ('P', 'Perempuan'),
     ]
 
     nrp = models.IntegerField(primary_key=True)
