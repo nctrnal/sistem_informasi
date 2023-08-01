@@ -1,13 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DosenWaliForm
 from .models import DosenWaliModel
+from mahasiswa.models import Mahasiswa
+from dosen_pengajar.models import DosenPengajarModel
 from django.contrib import messages
 
 
 def dosenwali(request):
+    # doswal = DosenPengajarModel.objects.filter(
+    #     nama__in=Mahasiswa.objects.values('doswal')).values()
+
+    # Mengambil daftar nilai doswal dari model Mahasiswa
+    doswal_names = Mahasiswa.objects.values_list('doswal', flat=True)
+    doswal = DosenPengajarModel.objects.filter(nama__in=doswal_names).values()
+
     context = {
         'title': 'Dosen Wali',
-        'doswal_list': DosenWaliModel.objects.all(),
+        'doswal_list': doswal,
     }
     return render(request, 'dosenwali.html', context)
 
@@ -34,7 +43,7 @@ def edit_doswal(request, pk):
 
 
 def hapus_doswal(request, pk):
-    doswal = get_object_or_404(DosenWaliModel, pk=pk)
+    doswal = get_object_or_404(DosenPengajarModel, pk=pk)
 
     if request.method == 'POST':
         doswal.delete()

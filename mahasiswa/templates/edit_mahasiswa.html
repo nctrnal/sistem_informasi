@@ -1,4 +1,22 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<style>
+  #jk {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #status {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
 
 <div class="card card-primary">
   <div class="card-header">
@@ -18,10 +36,16 @@
       </div>
       <div class="form-group">{{ form.jk.label_tag }} {{ form.jk }}</div>
       <div class="form-group">
+        {{ form.status.label_tag }} {{ form.status }}
+      </div>
+      <div class="form-group">
         {{ form.angkatan.label_tag }} {{ form.angkatan }}
       </div>
       <div class="form-group">
         {{ form.semester.label_tag }} {{ form.semester }}
+      </div>
+      <div class="form-group">
+        {{ form.doswal.label_tag }} {{ form.doswal }}
       </div>
       <div class="form-group">{{ form.agama.label_tag }} {{ form.agama }}</div>
       <div class="form-group">

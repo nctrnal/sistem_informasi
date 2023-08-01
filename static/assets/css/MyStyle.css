@@ -20,6 +20,13 @@
   vertical-align: middle;
   text-align: center;
   table-layout: auto;
+  border: 10px;
+}
+
+tbody td {
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 /* FORM */
@@ -38,3 +45,14 @@
   cursor: pointer;
   font-size: 16px;
 }
+
+/* Untuk status dosen pengajar, aktif atau tidak */
+.green-background {
+  background-color: green;
+}
+
+.red-background {
+  background-color: red;
+}
+
+/* end style untuk status pengajar */

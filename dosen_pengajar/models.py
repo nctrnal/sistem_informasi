@@ -27,6 +27,7 @@ class DosenPengajarModel(models.Model):
     tanggal_lahir = models.DateField()
     alamat = models.CharField(max_length=1000)
     email = models.CharField(max_length=1000)
+    kelas = models.CharField(max_length=100, default='3TI A')
     status = models.CharField(
         max_length=100, choices=pilihan_status, default='A')
     prodi = models.CharField(max_length=100)
