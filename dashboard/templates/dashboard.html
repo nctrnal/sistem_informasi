@@ -28,14 +28,14 @@
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
-        <h3>150</h3>
+        <h3>{{ mhs_aktif }}</h3>
 
         <p>Mahasiswa Aktif</p>
       </div>
       <div class="icon">
         <i class="fas fa-user-check"></i>
       </div>
-      <a href="#" class="small-box-footer"
+      <a href="mahasiswa" class="small-box-footer"
         >More info <i class="fas fa-arrow-circle-right"></i
       ></a>
     </div>
@@ -67,7 +67,7 @@
       <div class="icon">
         <i class="far fa-list-alt"></i>
       </div>
-      <a href="#" class="small-box-footer"
+      <a href="matakuliah" class="small-box-footer"
         >More info <i class="fas fa-arrow-circle-right"></i
       ></a>
     </div>
@@ -92,7 +92,14 @@
           borderWidth: 1,
         },
         {
-          label: "Program Studi",
+          label: "Mahasiswa Aktif",
+          data: data.data3, // Data dari Model1 yang telah digabungkan dari view
+          backgroundColor: "rgba(252, 3, 3, 0.2)",
+          borderColor: "rgba(252, 3, 3, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Dosen Pengajar",
           data: data.data2, // Data dari Model2 yang telah digabungkan dari view
           backgroundColor: "rgba(192, 75, 192, 0.2)",
           borderColor: "rgba(192, 75, 192, 1)",

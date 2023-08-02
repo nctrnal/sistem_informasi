@@ -20,6 +20,13 @@
   vertical-align: middle;
   text-align: center;
   table-layout: auto;
+  border: 10px;
+}
+
+tbody td {
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 /* FORM */
@@ -39,6 +46,7 @@
   font-size: 16px;
 }
 
+<<<<<<< HEAD
 .box-container {
   display: flex; /* Menggunakan flexbox untuk membuat semua box-container berada dalam satu baris */
   align-items: center; /* Mengatur posisi vertikal elemen di dalam flex container */
@@ -51,3 +59,15 @@
   display: inline-block; /* Membuat setiap box berada dalam satu baris */
   margin-right: 10px; /* Memberikan sedikit jarak antar box */
 }
+=======
+/* Untuk status dosen pengajar, aktif atau tidak */
+.green-background {
+  background-color: green;
+}
+
+.red-background {
+  background-color: red;
+}
+
+/* end style untuk status pengajar */
+>>>>>>> ca51f12b93c7126f34ded4bb0fb7b84f5ed308d1

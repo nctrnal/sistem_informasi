@@ -1,5 +1,21 @@
 {% extends "base.html" %} {% block content %}
 
+<style>
+    .green-background {
+        background-color: green;
+    }
+
+    .red-background {
+        background-color: red;
+    }
+
+    tbody td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+</style>
+
     <!-- Add this block to display messages -->
     {% if messages %}
     <ul>
@@ -36,7 +52,7 @@
                 <td>{{ pengajar.jk }}</td>
                 <td>{{ pengajar.tempat_lahir }}</td>
                 <td>{{ pengajar.tanggal_lahir }}</td>
-                <td>{{ pengajar.status }}</td>
+                <td class="{% if pengajar.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ pengajar.status }}</strong></td>
                 <td>{{ pengajar.prodi }}</td>
                 <td>{{ pengajar.agama }}</td>
                 <td>

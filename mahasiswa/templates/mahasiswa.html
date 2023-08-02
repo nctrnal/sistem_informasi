@@ -1,5 +1,22 @@
 {% extends "base.html" %} {% block content %}
 
+<style>
+    .green-background {
+        background-color: green;
+    }
+
+    .red-background {
+        background-color: red;
+    }
+
+    tbody td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+</style>
+
+
     <!-- Add this block to display messages -->
     {% if messages %}
     <ul>
@@ -22,7 +39,7 @@
                 <th>Tanggal Lahir</th>
                 <th>Angkatan</th>
                 <th>Semester</th>
-                <th>Agama</th>
+                <th>status</th>
                 <th>Beasiswa</th>
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
@@ -31,7 +48,7 @@
         <tbody>
             {% for mahasiswa in mahasiswa_list %}
             <tr>
-                <td><img id="foto_mhs_tbl" src="/images/{{ mahasiswa.foto }}" alt="{{ mahasiswa.nama }}"></td>
+                <td><img id="foto_tbl" src="/images/{{ mahasiswa.foto }}" alt="{{ mahasiswa.nama }}"></td>
                 <td>{{ mahasiswa.nim }}</td>
                 <td>{{ mahasiswa.nama }}</td>
                 <td>{{ mahasiswa.jk }}</td>
@@ -39,7 +56,7 @@
                 <td>{{ mahasiswa.tanggal_lahir }}</td>
                 <td>{{ mahasiswa.angkatan }}</td>
                 <td>{{ mahasiswa.semester }}</td>
-                <td>{{ mahasiswa.agama }}</td>
+                <td class="{% if mahasiswa.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ mahasiswa.status }}</strong></td>
                 <td>{{ mahasiswa.beasiswa }}</td>
                 <td>
                     <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
