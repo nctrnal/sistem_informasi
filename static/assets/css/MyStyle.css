@@ -3,8 +3,8 @@
 /* USER */
 /* image user */
 #foto_tbl {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .add-button {
@@ -37,4 +37,17 @@
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 16px;
+}
+
+.box-container {
+  display: flex; /* Menggunakan flexbox untuk membuat semua box-container berada dalam satu baris */
+  align-items: center; /* Mengatur posisi vertikal elemen di dalam flex container */
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block; /* Membuat setiap box berada dalam satu baris */
+  margin-right: 10px; /* Memberikan sedikit jarak antar box */
 }

@@ -2,12 +2,22 @@ from .models import MataKuliah
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import MataKuliahForm
 from django.contrib import messages
-
+from dosen_pengajar.models import DosenPengajarModel
 
 def matakuliah(request):
+    jurusan = request.GET.get('jurusan', None)
+    
+    if jurusan:
+        if jurusan == 'semua_jurusan':
+            mata_kuliah_list = MataKuliah.objects.all()
+        else:
+            mata_kuliah_list = MataKuliah.objects.filter(program_studi=jurusan)
+    else:
+        mata_kuliah_list = MataKuliah.objects.all()
+        
     context = {
         'title': 'Mata Kuliah',
-        'mata_kuliah_list': MataKuliah.objects.all()
+        'mata_kuliah_list': mata_kuliah_list
     }
     return render(request, 'matakuliah.html', context)
 
@@ -54,7 +64,14 @@ def tambah_mata_kuliah(request):
     else:
         form = MataKuliahForm()
 
-    # Konteks untuk halaman edit_matkul.html
+    # Ambil semua data dosen pengajar
+    dosen_pengajar_list = DosenPengajarModel.objects.all()
+
+    # Tambahkan data dosen_pengajar_list ke dalam choices untuk dropdown "Nama Pengajar"
+    form.fields['nama_pengajar'].queryset = dosen_pengajar_list
+
+
+    # Konteks untuk halaman tambah_matkul.html
     context = {
         'title': 'Mata Kuliah',
         'form': form,
