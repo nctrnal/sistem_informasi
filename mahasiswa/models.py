@@ -1,5 +1,5 @@
 from django.db import models
-
+from angkatan.models import Angkatan
 
 def user_directory_path(instance, filename):
     # Untuk menyimpan foto dengan nama berdasarkan username pengguna
@@ -30,7 +30,7 @@ class Mahasiswa(models.Model):
     doswal = models.CharField(max_length=1000, null=True)
     status = models.CharField(
         max_length=100, choices=pilihan_status, default='Aktif')
-    angkatan = models.IntegerField()
+    angkatan = models.CharField(max_length=1000, null=True)
     semester = models.IntegerField()
     agama = models.CharField(max_length=20)
     beasiswa = models.CharField(max_length=20)
