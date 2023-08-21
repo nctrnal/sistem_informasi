@@ -1,1 +1,48 @@
-{% extends "base.html" %} {% block content %} {% endblock content %}
+{% extends "base.html" %} {% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Tambah {{ title}}</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+              {{ form.nim.label_tag }}
+              {{ form.nim }}
+            </div>
+            <div class="form-group">
+              {{ form.lulus_sidang.label_tag }}
+              {{ form.lulus_sidang }}
+            </div>
+            <div class="form-group">
+              {{ form.epdamo.label_tag }}
+              {{ form.epdamo }}
+            </div>
+            <div class="form-group">
+              {{ form.lulus_prodi.label_tag }}
+              {{ form.lulus_prodi }}
+            </div>
+            <div class="form-group">
+              {{ form.lulus_keuangan.label_tag }}
+              {{ form.lulus_keuangan }}
+            </div>
+            <div class="form-group">
+              {{ form.lulus_bidkerjasama.label_tag }}
+              {{ form.lulus_bidkerjasama }}
+            </div>
+            <div class="form-group">
+              {{ form.lulus_perpus.label_tag }}
+              {{ form.lulus_perpus }}
+            </div>
+            <div class="form-group">
+              {{ form.toefl.label_tag }}
+              {{ form.toefl }}
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

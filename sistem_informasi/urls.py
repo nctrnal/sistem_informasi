@@ -13,6 +13,7 @@ urlpatterns = [
     path('absen/', include('absen.urls')),
     path('matakuliah/', include('matakuliah.urls')),
     path('dosenwali/', include('dosenwali.urls')),
+    # path('users/', include('users.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

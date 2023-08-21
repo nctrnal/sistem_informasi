@@ -36,14 +36,14 @@
             <div class="form-group">
               <label for="{{ form.nama_pengajar.id_for_label }}">Nama Pengajar</label>
               <select name="{{ form.nama_pengajar.name }}" id="{{ form.nama_pengajar.id_for_label }}" class="form-control">
+                <option value=""><p class="text-muted">---Pilih Pengajar---</p></option>
                   {% for dosen in form.fields.nama_pengajar.queryset %}
                       <option value="{{ dosen.pk }}">{{ dosen.nama }}</option>
                   {% endfor %}
               </select>
             </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
-        <div class="card-footer"></div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </form>
 </div>

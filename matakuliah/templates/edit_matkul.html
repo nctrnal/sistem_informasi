@@ -20,8 +20,14 @@
               {{ form.jumlah_sks }}
             </div>
             <div class="form-group">
-              {{ form.program_studi.label_tag }}
-              {{ form.program_studi }}
+              <label for="{{ form.program_studi.id_for_label }}">Program Studi</label>
+              <select name="{{ form.program_studi.name }}" id="{{ form.program_studi.id_for_label }}" class="form-control">
+                <option value="">Pilih Program Studi</option>
+                <option value="Teknologi Informasi">Teknologi Informasi</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Mekatronika">Mekatronika</option>
+                <option value="Teknik Elektro">Teknik Elektro</option>
+              </select>
             </div>
             <div class="form-group">
               {{ form.kelas.label_tag }}

@@ -22,7 +22,7 @@
     <div class="card-header">
         <h3 class="card-title">Tambah {{ title }}</h3>
     </div>
-    <form method="post" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="card-body">
             <div class="form-group">
@@ -73,9 +73,9 @@
               {{ form.agama.label_tag }}
               {{ form.agama }}
             </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
-        <div class="card-footer"></div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <div class="card-footer"></div>        
         </div>
     </form>
 </div>

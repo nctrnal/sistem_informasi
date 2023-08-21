@@ -18,11 +18,21 @@ class DosenPengajarModel(models.Model):
         ('P', 'Perempuan'),
     ]
 
+    pilihan_agama = [
+        ('Islam', 'Islam'),
+        ('Kristen', 'Kristen'),
+        ('Katolik', 'Katolik'),
+        ('Hindu', 'Hindu'),
+        ('Budha', 'Budha'),
+        ('Konghucu', 'Konghucu'),
+    ]
+
     nrp = models.IntegerField(primary_key=True)
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
     nama = models.CharField(max_length=100)
-    jk = models.CharField(max_length=20, choices=jenis_kelamin, default='L')
+    jk = models.CharField(
+        max_length=20, choices=jenis_kelamin, default='Laki-Laki')
     tempat_lahir = models.CharField(max_length=100)
     tanggal_lahir = models.DateField()
     alamat = models.CharField(max_length=1000)
@@ -31,7 +41,8 @@ class DosenPengajarModel(models.Model):
     status = models.CharField(
         max_length=100, choices=pilihan_status, default='A')
     prodi = models.CharField(max_length=100)
-    agama = models.CharField(max_length=20)
+    agama = models.CharField(
+        max_length=50, choices=pilihan_agama, default='Islam')
 
     def __str__(self):
         return self.nama

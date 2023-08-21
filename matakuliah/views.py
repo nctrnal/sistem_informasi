@@ -4,9 +4,10 @@ from .forms import MataKuliahForm
 from django.contrib import messages
 from dosen_pengajar.models import DosenPengajarModel
 
+
 def matakuliah(request):
     jurusan = request.GET.get('jurusan', None)
-    
+
     if jurusan:
         if jurusan == 'semua_jurusan':
             mata_kuliah_list = MataKuliah.objects.all()
@@ -14,7 +15,9 @@ def matakuliah(request):
             mata_kuliah_list = MataKuliah.objects.filter(program_studi=jurusan)
     else:
         mata_kuliah_list = MataKuliah.objects.all()
-        
+
+    # mata_kuliah_list = MataKuliah.objects.all()
+
     context = {
         'title': 'Mata Kuliah',
         'mata_kuliah_list': mata_kuliah_list
@@ -29,6 +32,8 @@ def edit_mata_kuliah(request, pk):
         form = MataKuliahForm(request.POST, instance=mata_kuliah)
         if form.is_valid():
             form.save()
+            messages.success(
+                request, f'Mata kuliah "{mata_kuliah.nama_mata_kuliah}" berhasil diubah !!')
             return redirect('matakuliah')
     else:
         form = MataKuliahForm(instance=mata_kuliah)
@@ -59,6 +64,7 @@ def tambah_mata_kuliah(request):
         form = MataKuliahForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, f'Mata kuliah berhasil ditambahkan !!')
             # Ganti 'daftar_matkul' dengan nama URL untuk halaman daftar mata kuliah
             return redirect('matakuliah')
     else:
@@ -69,7 +75,6 @@ def tambah_mata_kuliah(request):
 
     # Tambahkan data dosen_pengajar_list ke dalam choices untuk dropdown "Nama Pengajar"
     form.fields['nama_pengajar'].queryset = dosen_pengajar_list
-
 
     # Konteks untuk halaman tambah_matkul.html
     context = {

@@ -50,7 +50,7 @@ def tambah_mahasiswa(request):
         if form.is_valid():
             form.save()
             # Ganti 'daftar_mahasiswa' dengan nama URL untuk halaman daftar mata kuliah
-            return redirect('mahasiswa')
+            return redirect('mahasiswa', mahasiswa.id)
     else:
         form = MahasiswaForm()
 
