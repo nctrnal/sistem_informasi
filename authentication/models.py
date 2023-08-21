@@ -3,9 +3,10 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     USERNAME_FIELD = 'NIM'
+    
+    role = models.CharField(max_length=50)
     NIM = models.CharField(max_length=20, unique=True)
     nama = models.CharField(max_length=100)
-    role = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     status = models.CharField(max_length=50)
     

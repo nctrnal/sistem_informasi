@@ -1,5 +1,23 @@
 {% extends "base.html" %} {% block content %}
 
+<style>
+  #jk {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #status {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
+
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">Tambah Mahasiswa</h3>
@@ -44,14 +62,6 @@
               {{ form.semester }}
             </div>
             <div class="form-group">
-              {{ form.alamat.label_tag }}
-              {{ form.alamat }}
-            </div>
-            <div class="form-group">
-              {{ form.email.label_tag }}
-              {{ form.email }}
-            </div>
-            <div class="form-group">
               {{ form.doswal.label_tag }}
               {{ form.doswal }}
             </div>
@@ -63,28 +73,12 @@
               {{ form.beasiswa.label_tag }}
               {{ form.beasiswa }}
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </form>
 </div>
-    <a href="{% url 'mahasiswa' %}" class="btn btn-primary"><< Kembali</a>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const angkatanField = document.getElementById('angkatan');  // Ganti dengan ID field angkatan sesuai dengan template Anda
-      const semesterField = document.getElementById('semester');  // Ganti dengan ID field semester sesuai dengan template Anda
-      
-      // Tambahkan event listener ke field angkatan
-      angkatanField.addEventListener('change', function () {
-          const tahunAngkatan = parseInt(angkatanField.value);
-          const tahunSekarang = new Date().getFullYear();
-          const selisihTahun = tahunSekarang - tahunAngkatan;
-          const jumlahSemester = selisihTahun * 2;
-  
-          semesterField.value = jumlahSemester;
-      });
-  });
-</script>
+    <a href="{% url 'mahasiswa' %}" class="btn btn-primary"> Kembali</a>
 
 {% endblock content %}

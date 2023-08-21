@@ -18,15 +18,6 @@ class Mahasiswa(models.Model):
         ('P', 'Perempuan'),
     ]
 
-    pilihan_agama = [
-        ('Islam', 'Islam'),
-        ('Kristen', 'Kristen'),
-        ('Katolik', 'Katolik'),
-        ('Hindu', 'Hindu'),
-        ('Budha', 'Budha'),
-        ('Konghucu', 'Konghucu'),
-    ]
-
     nim = models.IntegerField(primary_key=True)
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
@@ -41,9 +32,8 @@ class Mahasiswa(models.Model):
         max_length=100, choices=pilihan_status, default='Aktif')
     angkatan = models.CharField(max_length=1000, null=True)
     semester = models.IntegerField()
-    agama = models.CharField(
-        max_length=50, choices=pilihan_agama, default='Islam')
+    agama = models.CharField(max_length=20)
     beasiswa = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.nama
+        return self.mahasiswa

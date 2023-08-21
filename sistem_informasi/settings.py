@@ -38,21 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
     'dashboard',
     'mahasiswa',
     'angkatan',
-    'wisudah_yudisium',
     'dosen_pengajar',
     'absen',
     'matakuliah',
     'dosenwali',
-<<<<<<< HEAD
-    'users',
-=======
     'authentication',
     'user_manage',
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser" 

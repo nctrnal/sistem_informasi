@@ -9,18 +9,12 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('mahasiswa/', include('mahasiswa.urls')),
     path('angkatan/', include('angkatan.urls')),
-    path('wisudah/', include('wisudah_yudisium.urls')),
     path('pengajar/', include('dosen_pengajar.urls')),
     path('absen/', include('absen.urls')),
     path('matakuliah/', include('matakuliah.urls')),
     path('dosenwali/', include('dosenwali.urls')),
-<<<<<<< HEAD
-    # path('users/', include('users.urls')),
-=======
-    path('authentication/', include('authentication.urls')),
     path('user_manage/', include('user_manage.urls')),
     path('authentication/', include('authentication.urls')),
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
