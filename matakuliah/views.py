@@ -3,6 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import MataKuliahForm
 from django.contrib import messages
 from dosen_pengajar.models import DosenPengajarModel
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='authentication:login')
 
 
 def matakuliah(request):

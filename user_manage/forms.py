@@ -1,4 +1,5 @@
 from django import forms
+<<<<<<< HEAD:wisudah_yudisium/forms.py
 from .models import WisudahYudisiumModel
 
 
@@ -17,3 +18,12 @@ class WisudahYudisiumForm(forms.ModelForm):
             'lulus_perpus': forms.FileInput(attrs={'class': 'form-control'}),
             'toefl': forms.FileInput(attrs={'class': 'form-control'}),
         }
+=======
+from django.contrib.auth.forms import UserCreationForm
+from authentication.models import CustomUser
+
+class UserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = CustomUser  # Use your custom user model
+        fields = UserCreationForm.Meta.fields + ('email', 'NIM')  # Sesuaikan dengan kolom yang ingin ditampilkan
+>>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea:user_manage/forms.py

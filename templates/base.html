@@ -144,6 +144,7 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="navbar-brand">
+<<<<<<< HEAD
           <img
             src="{% static 'assets/images/LOGOPOLTEK.png' %}"
             alt="AdminLTE Logo"
@@ -153,6 +154,12 @@
             style="opacity: 0.8"
           />
         </a>
+=======
+          <img src="{% static 'assets/images/LOGOPOLTEK.png' %}" alt="AdminLTE Logo" width="200" height="50" class="ml-3 d-flex" style="opacity: .8">
+          
+          </a>
+
+>>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 
         <!-- Sidebar -->
         <div class="sidebar">
@@ -166,7 +173,8 @@
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block">{{ request.user.username }}</a>
+              
             </div>
           </div>
 
@@ -364,7 +372,11 @@
               </li>
               <li class="nav-item">
                 <a
+<<<<<<< HEAD
                   href="admin_user"
+=======
+                  href="/user_manage"
+>>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
                   class="nav-link {% if title == 'Admin' %} active {% endif %}"
                 >
                   <img
@@ -373,6 +385,19 @@
                     alt=""
                   />
                   <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="{% url 'authentication:logout' %}"
+                  class="nav-link"
+                >
+                  <img
+                    class="nav-icon"
+                    src="{% static 'assets/images/logout.png' %}"
+                    alt=""
+                  />
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>
@@ -452,8 +477,6 @@
     <script src="{% static 'assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
     <!-- AdminLTE App -->
     <script src="{% static 'assets/dist/js/adminlte.js' %}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{% static 'assets/dist/js/demo.js' %}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{% static 'assets/dist/js/pages/dashboard.js' %}"></script>
   </body>

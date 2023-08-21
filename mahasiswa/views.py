@@ -2,7 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Mahasiswa
 from .forms import MahasiswaForm
 from django.contrib import messages
+from angkatan.models import Angkatan
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url='authentication:login')
 
 def mahasiswa(request):
     context = {
@@ -54,7 +58,8 @@ def tambah_mahasiswa(request):
     else:
         form = MahasiswaForm()
 
-    # Konteks untuk halaman edit_matkul.html
+
+    # Konteks untuk halaman tambah_angkatan.html
     context = {
         'title': 'Mahasiswa',
         'form': form,

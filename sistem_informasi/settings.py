@@ -47,8 +47,15 @@ INSTALLED_APPS = [
     'absen',
     'matakuliah',
     'dosenwali',
+<<<<<<< HEAD
     'users',
+=======
+    'authentication',
+    'user_manage',
+>>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 ]
+
+AUTH_USER_MODEL = "authentication.CustomUser" 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sistem_informasi',
         'USER': 'postgres',
-        'PASSWORD': 'najib123',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',         # Ganti 'localhost' dengan host basis data Anda
         'PORT': '5432',
     }
@@ -100,18 +107,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    #{
+    #    'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    #},
+    #{
+    #    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    #},
+    #{
+    #    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #},
+    #{
+    #    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #},
 ]
 
 

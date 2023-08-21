@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DosenPengajarForm
 from .models import DosenPengajarModel
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='authentication:login')
 
 
 def pengajar(request):
