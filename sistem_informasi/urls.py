@@ -13,6 +13,7 @@ urlpatterns = [
     path('absen/', include('absen.urls')),
     path('matakuliah/', include('matakuliah.urls')),
     path('dosenwali/', include('dosenwali.urls')),
+    path('tahun_ajaran/', include('tahun_ajaran.urls')),
     path('user_manage/', include('user_manage.urls')),
     path('authentication/', include('authentication.urls')),
 ]

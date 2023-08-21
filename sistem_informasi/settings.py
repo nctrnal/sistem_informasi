@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'dosenwali',
     'authentication',
     'user_manage',
+    'tahun_ajaran',
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser" 
