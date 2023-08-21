@@ -2,8 +2,10 @@ from django.shortcuts import render
 from mahasiswa.models import Mahasiswa
 from matakuliah.models import MataKuliah
 from dosen_pengajar.models import DosenPengajarModel
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='authentication:login')
 def index(request):
 
     total_mhs = Mahasiswa.objects.count()

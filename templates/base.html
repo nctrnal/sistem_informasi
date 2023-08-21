@@ -161,7 +161,8 @@
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block">{{ request.user.username }}</a>
+              
             </div>
           </div>
 
@@ -359,7 +360,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="#"
+                  href="/user_manage"
                   class="nav-link {% if title == 'Admin' %} active {% endif %}"
                 >
                   <img
@@ -368,6 +369,19 @@
                     alt=""
                   />
                   <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="{% url 'authentication:logout' %}"
+                  class="nav-link"
+                >
+                  <img
+                    class="nav-icon"
+                    src="{% static 'assets/images/logout.png' %}"
+                    alt=""
+                  />
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>

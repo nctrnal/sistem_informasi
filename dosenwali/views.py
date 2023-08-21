@@ -4,6 +4,10 @@ from .models import DosenWaliModel
 from mahasiswa.models import Mahasiswa
 from dosen_pengajar.models import DosenPengajarModel
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='authentication:login')
 
 
 def dosenwali(request):

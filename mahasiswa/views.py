@@ -3,6 +3,10 @@ from .models import Mahasiswa
 from .forms import MahasiswaForm
 from django.contrib import messages
 from angkatan.models import Angkatan
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='authentication:login')
 
 def mahasiswa(request):
     context = {
