@@ -5,10 +5,6 @@ from angkatan.models import Angkatan
 
 
 class MahasiswaForm(forms.ModelForm):
-<<<<<<< HEAD
-    doswal = forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
-    angkatan = forms.ModelChoiceField(queryset=Angkatan.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
-=======
     doswal = forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all(
     ), widget=forms.Select(attrs={'class': 'form-control', 'id': 'doswal'}))
     angkatan = forms.ChoiceField(
@@ -20,7 +16,6 @@ class MahasiswaForm(forms.ModelForm):
     #     )
     semester = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'id': 'semester', 'readonly': 'readonly'}))
->>>>>>> 6b47acf24edd11209aa70e0b1f031010fe34db6b
 
     class Meta:
         model = Mahasiswa
@@ -34,19 +29,12 @@ class MahasiswaForm(forms.ModelForm):
             'tempat_lahir': forms.TextInput(attrs={'class': 'form-control', 'id': 'tempat_lahir'}),
             'tanggal_lahir': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'id': 'tanggal_lahir'}),
             # 'doswal': forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all()),
-<<<<<<< HEAD
-            'status': forms.RadioSelect(attrs={'type': 'radio', 'id': 'status'}),
-            #'angkatan': forms.ModelChoiceField(attrs={'class': 'form-control', 'id': 'angkatan'}),
-            'semester': forms.NumberInput(attrs={'class': 'form-control', 'id': 'semester'}),
-            'agama': forms.TextInput(attrs={'class': 'form-control', 'id': 'agama'}),
-=======
             'status': forms.Select(attrs={'class': 'form-control', 'id': 'status'}),
             'alamat': forms.TextInput(attrs={'class': 'form-control', 'id': 'alamat'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'id': 'email'}),
             # 'angkatan': forms.ModelChoiceField(queryset=Angkatan.objects.values_list('nama_angkatan', flat=True)),
             # 'semester': forms.TextInput(attrs={'class': 'form-control', 'id': 'semester'}),
             'agama': forms.Select(attrs={'class': 'form-control', 'id': 'agama'}),
->>>>>>> 6b47acf24edd11209aa70e0b1f031010fe34db6b
             'beasiswa': forms.TextInput(attrs={'class': 'form-control', 'id': 'beasiswa'}),
         }
 

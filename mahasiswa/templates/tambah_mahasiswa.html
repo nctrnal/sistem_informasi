@@ -98,4 +98,22 @@
 </div>
     <a href="{% url 'mahasiswa' %}" class="btn btn-primary"> Kembali</a>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const angkatanField = document.getElementById('angkatan');  // Ganti dengan ID field angkatan sesuai dengan template Anda
+          const semesterField = document.getElementById('semester');  // Ganti dengan ID field semester sesuai dengan template Anda
+          
+          // Tambahkan event listener ke field angkatan
+          angkatanField.addEventListener('change', function () {
+              const tahunAngkatan = parseInt(angkatanField.value);
+              const tahunSekarang = new Date().getFullYear();
+              const selisihTahun = tahunSekarang - tahunAngkatan;
+              const jumlahSemester = selisihTahun * 2;
+      
+              semesterField.value = jumlahSemester;
+          });
+      });
+    </script>
+    
+
 {% endblock content %}
