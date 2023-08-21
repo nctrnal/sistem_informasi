@@ -144,7 +144,6 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="navbar-brand">
-<<<<<<< HEAD
           <img
             src="{% static 'assets/images/LOGOPOLTEK.png' %}"
             alt="AdminLTE Logo"
@@ -154,12 +153,6 @@
             style="opacity: 0.8"
           />
         </a>
-=======
-          <img src="{% static 'assets/images/LOGOPOLTEK.png' %}" alt="AdminLTE Logo" width="200" height="50" class="ml-3 d-flex" style="opacity: .8">
-          
-          </a>
-
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 
         <!-- Sidebar -->
         <div class="sidebar">
@@ -174,7 +167,6 @@
             </div>
             <div class="info">
               <a href="#" class="d-block">{{ request.user.username }}</a>
-              
             </div>
           </div>
 
@@ -242,19 +234,6 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="/wisudah"
-                  class="nav-link {% if title == 'Wisudah dan Yudisium' %} active {% endif %}"
-                >
-                  <img
-                    class="nav-icon"
-                    src="{% static 'assets/images/wisuda.png' %}"
-                    alt=""
-                  />
-                  <p>Pengajuan Wisuda dan Yudisium</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
                   href="/pengajar"
                   class="nav-link {% if title == 'Dosen Pengajar' %} active {% endif %}"
                 >
@@ -277,19 +256,6 @@
                     alt=""
                   />
                   <p>Absen Dosen Mahasiswa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  href="#"
-                  class="nav-link {% if title == 'Daftar Ulang' %} active {% endif %}"
-                >
-                  <img
-                    class="nav-icon"
-                    src="{% static 'assets/images/daftar.png' %}"
-                    alt=""
-                  />
-                  <p>Daftar Ulang</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -372,11 +338,7 @@
               </li>
               <li class="nav-item">
                 <a
-<<<<<<< HEAD
-                  href="admin_user"
-=======
                   href="/user_manage"
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
                   class="nav-link {% if title == 'Admin' %} active {% endif %}"
                 >
                   <img
@@ -388,10 +350,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a
-                  href="{% url 'authentication:logout' %}"
-                  class="nav-link"
-                >
+                <a href="{% url 'authentication:logout' %}" class="nav-link">
                   <img
                     class="nav-icon"
                     src="{% static 'assets/images/logout.png' %}"

@@ -4,7 +4,7 @@ from .forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='authentication:login')
+# @login_required(login_url='authentication:login')
 
 def user_list(request):
     users = CustomUser.objects.all()  # Use CustomUser instead of User

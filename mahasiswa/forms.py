@@ -6,17 +6,17 @@ from angkatan.models import Angkatan
 
 
 class MahasiswaForm(forms.ModelForm):
-<<<<<<< HEAD
     doswal = forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all(
     ), widget=forms.Select(attrs={'class': 'form-control', 'id': 'doswal'}))
-    angkatan = forms.ModelChoiceField(
-        queryset=Angkatan.objects.values_list('nama_angkatan', flat=True), widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'}))
+    angkatan = forms.ChoiceField(
+        choices=Angkatan.objects.values_list('nama_angkatan', 'nama_angkatan'),
+        widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'}))
+    # angkatan = forms.ModelChoiceField(
+    #     queryset=Angkatan.objects.all(),
+    #     widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'})
+    #     )
     semester = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'id': 'semester', 'readonly': 'readonly'}))
-=======
-    doswal = forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
-    angkatan = forms.ModelChoiceField(queryset=Angkatan.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 
     class Meta:
         model = Mahasiswa
@@ -30,19 +30,12 @@ class MahasiswaForm(forms.ModelForm):
             'tempat_lahir': forms.TextInput(attrs={'class': 'form-control', 'id': 'tempat_lahir'}),
             'tanggal_lahir': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'id': 'tanggal_lahir'}),
             # 'doswal': forms.ModelChoiceField(queryset=DosenPengajarModel.objects.all()),
-<<<<<<< HEAD
             'status': forms.Select(attrs={'class': 'form-control', 'id': 'status'}),
             'alamat': forms.TextInput(attrs={'class': 'form-control', 'id': 'alamat'}),
-            'email': forms.EmailField(attrs={'class': 'form-control', 'id': 'email'}),
-            # 'angkatan': forms.ModelChoiceField(attrs={'id': 'angkatan'}, queryset=Angkatan.objects.values_list('nama_angkatan', flat=True)),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'id': 'email'}),
+            # 'angkatan': forms.ModelChoiceField(queryset=Angkatan.objects.values_list('nama_angkatan', flat=True)),
             # 'semester': forms.TextInput(attrs={'class': 'form-control', 'id': 'semester'}),
             'agama': forms.Select(attrs={'class': 'form-control', 'id': 'agama'}),
-=======
-            'status': forms.RadioSelect(attrs={'type': 'radio', 'id': 'status'}),
-            #'angkatan': forms.ModelChoiceField(attrs={'class': 'form-control', 'id': 'angkatan'}),
-            'semester': forms.NumberInput(attrs={'class': 'form-control', 'id': 'semester'}),
-            'agama': forms.TextInput(attrs={'class': 'form-control', 'id': 'agama'}),
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
             'beasiswa': forms.TextInput(attrs={'class': 'form-control', 'id': 'beasiswa'}),
         }
 

@@ -39,7 +39,7 @@ class Mahasiswa(models.Model):
     doswal = models.CharField(max_length=1000, null=True)
     status = models.CharField(
         max_length=100, choices=pilihan_status, default='Aktif')
-    angkatan = models.CharField(max_length=1000, null=True)
+    angkatan = models.CharField()
     semester = models.IntegerField()
     agama = models.CharField(
         max_length=50, choices=pilihan_agama, default='Islam')

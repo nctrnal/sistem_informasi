@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Mahasiswa
 from .forms import MahasiswaForm
 from django.contrib import messages
-from angkatan.models import Angkatan
+# from angkatan.models import Angkatan
 from django.contrib.auth.decorators import login_required
+import logging
 
 
 @login_required(login_url='authentication:login')
@@ -49,12 +50,18 @@ def hapus_mahasiswa(request, pk):
 
 
 def tambah_mahasiswa(request):
+
+    logger = logging.getLogger(__name__)
     if request.method == 'POST':
         form = MahasiswaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, f'Mahasiswa berhasil ditambahkan')
+            # messages.error(request, f'Mahasiswa gagal ditambahkan')
             # Ganti 'daftar_mahasiswa' dengan nama URL untuk halaman daftar mata kuliah
-            return redirect('mahasiswa', mahasiswa.id)
+            return redirect('mahasiswa')
+        else:
+            logger.error('Form tidak valid: %s', form.errors)
     else:
         form = MahasiswaForm()
 
