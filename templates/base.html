@@ -162,7 +162,6 @@
             </div>
             <div class="info">
               <a href="#" class="d-block">{{ request.user.username }}</a>
-              
             </div>
           </div>
 
@@ -252,19 +251,6 @@
                     alt=""
                   />
                   <p>Absen Dosen Mahasiswa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  href="#"
-                  class="nav-link {% if title == 'Daftar Ulang' %} active {% endif %}"
-                >
-                  <img
-                    class="nav-icon"
-                    src="{% static 'assets/images/daftar.png' %}"
-                    alt=""
-                  />
-                  <p>Daftar Ulang</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -359,10 +345,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a
-                  href="{% url 'authentication:logout' %}"
-                  class="nav-link"
-                >
+                <a href="{% url 'authentication:logout' %}" class="nav-link">
                   <img
                     class="nav-icon"
                     src="{% static 'assets/images/logout.png' %}"

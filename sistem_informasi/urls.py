@@ -13,8 +13,14 @@ urlpatterns = [
     path('absen/', include('absen.urls')),
     path('matakuliah/', include('matakuliah.urls')),
     path('dosenwali/', include('dosenwali.urls')),
+<<<<<<< HEAD
     path('user_manage/', include('user_manage.urls')),
     path('authentication/', include('authentication.urls')),
+=======
+    path('authentication/', include('authentication.urls')),
+    path('user_manage/', include('user_manage.urls'))
+    # path('users/', include('users.urls')),
+>>>>>>> 6b47acf24edd11209aa70e0b1f031010fe34db6b
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
