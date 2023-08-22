@@ -11,7 +11,7 @@ class CutiForm(forms.ModelForm):
         model = CutiModel
         fields = ['nama', 'tanggal_mulai', 'lama_cuti', 'syarat_cuti', 'keterangan', 'status_cuti']
         widgets = {
-            'nama' : forms.HiddenInput(),
+            'nama' : forms.TextInput(attrs={'class':'form-control', 'id':'nama'}),
             'tanggal_mulai' : forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'id': 'tanggal_mulai'}),
             'lama_cuti' : forms.TextInput(attrs={'class':'form-control', 'id':'lama_cuti'}),
             'keterangan' : forms.TextInput(attrs={'class':'form-control', 'id':'lama_cuti'}),

@@ -13,13 +13,13 @@ class CutiModel(models.Model):
     ]
 
     id = models.AutoField(primary_key=True)
-    nama = models.CharField(max_length=100)
+    nama = models.CharField(max_length=100, blank=True)
     tanggal_mulai = models.DateField()
     lama_cuti = models.CharField(max_length=100)
     syarat_cuti = models.FileField(upload_to='uploads/cuti/')
     keterangan = models.CharField(max_length=100)
     status_cuti = models.CharField(
-        max_length=100, choices=pilihan_status, default='Aktif')
+        max_length=100, choices=pilihan_status, default='Status', blank=True)
 
     def __str__(self):
         return self.nama

@@ -24,6 +24,8 @@ def ajukan_cuti(request):
     if request.method == 'POST':
         form = CutiForm(request.POST, request.FILES)
         if form.is_valid():
+            cuti = form.save(commit=False)
+            cuti.nama = nama
             cuti.save()
             messages.success(request, f'Cuti berhasil diajukan, silahkan tunggu respon pihak prodi')
             # messages.error(request, f'Mahasiswa gagal ditambahkan')

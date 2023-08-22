@@ -32,8 +32,8 @@
                 <td>{{ cuti.keterangan }}</td>
                 <td>{{ cuti.status_cuti }}</td>
                 <td>
-                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
-                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'cuti'  %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                    <a href="{% url 'cuti'  %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             {% endfor %}
