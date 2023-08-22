@@ -46,7 +46,6 @@ tbody td {
   font-size: 16px;
 }
 
-<<<<<<< HEAD
 #status {
   position: relative;
   padding-left: 30px;
@@ -56,8 +55,6 @@ tbody td {
 }
 
 /* --------------------------- */
-=======
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 
 .box-container {
   display: flex; /* Menggunakan flexbox untuk membuat semua box-container berada dalam satu baris */
@@ -71,10 +68,7 @@ tbody td {
   display: inline-block; /* Membuat setiap box berada dalam satu baris */
   margin-right: 10px; /* Memberikan sedikit jarak antar box */
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
 /* Untuk status dosen pengajar, aktif atau tidak */
 .green-background {
   background-color: green;
@@ -85,7 +79,4 @@ tbody td {
 }
 
 /* end style untuk status pengajar */
-<<<<<<< HEAD
-=======
 
->>>>>>> 45e0d6cbc057d977bbba61f29374edefff3ee7ea
