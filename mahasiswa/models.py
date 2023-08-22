@@ -26,6 +26,13 @@ class Mahasiswa(models.Model):
         ('Konghucu', 'Konghucu'),
     ]
 
+    pilihan_jurusan =[
+        ('Teknologi Informasi','Teknologi Informasi'),
+        ('Akuntansi','Akuntansi'),
+        ('Teknik Elektro','Teknik Elektro'),
+        ('Mekatronika','Mekatronika'),
+    ]
+
     nim = models.IntegerField(primary_key=True)
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
@@ -43,6 +50,8 @@ class Mahasiswa(models.Model):
     agama = models.CharField(
         max_length=50, choices=pilihan_agama, default='Islam')
     beasiswa = models.CharField(max_length=20)
+    jurusan = models.CharField(
+        max_length=50, choices=pilihan_jurusan, default='Islam')
 
     def __str__(self):
         return self.mahasiswa
