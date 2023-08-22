@@ -25,12 +25,11 @@ class Mahasiswa(models.Model):
         ('Budha', 'Budha'),
         ('Konghucu', 'Konghucu'),
     ]
-
-    pilihan_jurusan =[
-        ('Teknologi Informasi','Teknologi Informasi'),
-        ('Akuntansi','Akuntansi'),
-        ('Teknik Elektro','Teknik Elektro'),
-        ('Mekatronika','Mekatronika'),
+    pilihan_jurusan = [
+        ('Teknologi Informasi', 'Teknologi Informasi'),
+        ('Akuntansi', 'Akuntansi'),
+        ('Teknik Elektro', 'Teknik Elektro'),
+        ('Mekatronika', 'Mekatronika'),
     ]
 
     nim = models.IntegerField(primary_key=True)
@@ -51,7 +50,7 @@ class Mahasiswa(models.Model):
         max_length=50, choices=pilihan_agama, default='Islam')
     beasiswa = models.CharField(max_length=20)
     jurusan = models.CharField(
-        max_length=50, choices=pilihan_jurusan, default='Islam')
+        max_length=50, choices=pilihan_jurusan, default='Teknologi Informasi')
 
     def __str__(self):
         return self.mahasiswa

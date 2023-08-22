@@ -72,3 +72,9 @@ def tambah_mahasiswa(request):
         'form': form,
     }
     return render(request, 'tambah_mahasiswa.html', context)
+
+def detail_mahasiswa(request, pk):
+    mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
+    context = {'title': 'Mahasiswa',
+        'mahasiswa': mahasiswa}
+    return render(request, 'detail_mahasiswa.html', context)

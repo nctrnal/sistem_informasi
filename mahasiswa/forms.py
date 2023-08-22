@@ -10,22 +10,21 @@ class MahasiswaForm(forms.ModelForm):
     angkatan = forms.ChoiceField(
         choices=Angkatan.objects.values_list('nama_angkatan', 'nama_angkatan'),
         widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'}))
-    angkatan = forms.ModelChoiceField(
-        queryset=Angkatan.objects.all(),
-        widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'})
-        )
+    # angkatan = forms.ModelChoiceField(
+    #     queryset=Angkatan.objects.all(),
+    #     widget=forms.Select(attrs={'class': 'form-control', 'id': 'angkatan'})
+    #     )
     semester = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'id': 'semester', 'readonly': 'readonly'}))
 
     class Meta:
         model = Mahasiswa
         fields = ['nim', 'foto', 'nama', 'tempat_lahir', 'tanggal_lahir',
-                  'angkatan', 'semester', 'jk', 'agama', 'beasiswa', 'doswal', 'status', 'alamat', 'email','jurusan']
+                  'angkatan', 'semester', 'jk', 'agama', 'beasiswa', 'doswal', 'status', 'alamat', 'email', 'jurusan']
         widgets = {
             'nim': forms.NumberInput(attrs={'class': 'form-control', 'id': 'nim'}),
             'foto': forms.FileInput(attrs={'class': 'form-control', 'required': 'false'}),
             'nama': forms.TextInput(attrs={'class': 'form-control', 'id': 'nama'}),
-            'jurusan': forms.Select(attrs={'class': 'form-control', 'id': 'jurusan'}),
             'jk': forms.RadioSelect(attrs={'type': 'radio', 'id': 'jk'}),
             'tempat_lahir': forms.TextInput(attrs={'class': 'form-control', 'id': 'tempat_lahir'}),
             'tanggal_lahir': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'id': 'tanggal_lahir'}),
@@ -37,6 +36,7 @@ class MahasiswaForm(forms.ModelForm):
             # 'semester': forms.TextInput(attrs={'class': 'form-control', 'id': 'semester'}),
             'agama': forms.Select(attrs={'class': 'form-control', 'id': 'agama'}),
             'beasiswa': forms.TextInput(attrs={'class': 'form-control', 'id': 'beasiswa'}),
+            'jurusan': forms.Select(attrs={'class': 'form-control', 'id': 'jurusan'}),
         }
 
 

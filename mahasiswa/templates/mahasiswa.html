@@ -59,7 +59,7 @@
                 <td class="{% if mahasiswa.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ mahasiswa.status }}</strong></td>
                 <td>{{ mahasiswa.beasiswa }}</td>
                 <td>
-                    <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
+                    <a href="{% url 'detail_mahasiswa' mahasiswa.pk %}" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
                     <a href="{% url 'edit_mahasiswa' mahasiswa.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a href="#" class="hapus-mahasiswa-link btn btn-danger" data-pk="{{ mahasiswa.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
