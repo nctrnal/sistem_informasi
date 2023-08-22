@@ -1,6 +1,2 @@
-# migrations
-migrations/*.py
-!__init__.py
-
 #gambar
 images/

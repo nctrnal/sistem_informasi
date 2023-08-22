@@ -8,7 +8,10 @@ from django.contrib.auth.decorators import login_required
 
 def user_list(request):
     users = CustomUser.objects.all()  # Use CustomUser instead of User
-    context = {'users': users}
+    context = {
+        'users': users,
+        'title' : 'Admin'
+        }
     return render(request, 'user_list.html', context)
 
 def add_user(request):

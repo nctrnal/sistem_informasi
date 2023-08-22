@@ -19,8 +19,8 @@ class MahasiswaForm(forms.ModelForm):
 
     class Meta:
         model = Mahasiswa
-        fields = ['nim', 'foto', 'nama', 'tempat_lahir', 'tanggal_lahir', 
-                  'angkatan', 'semester', 'jk', 'agama', 'beasiswa', 'doswal', 'status','jurusan']
+        fields = ['nim', 'foto', 'nama', 'tempat_lahir', 'tanggal_lahir',
+                  'angkatan', 'semester', 'jk', 'agama', 'beasiswa', 'doswal', 'status', 'alamat', 'email','jurusan']
         widgets = {
             'nim': forms.NumberInput(attrs={'class': 'form-control', 'id': 'nim'}),
             'foto': forms.FileInput(attrs={'class': 'form-control', 'required': 'false'}),

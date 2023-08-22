@@ -40,8 +40,8 @@ class Mahasiswa(models.Model):
     jk = models.CharField(max_length=20, choices=jenis_kelamin, default='L')
     tempat_lahir = models.CharField(max_length=100)
     tanggal_lahir = models.DateField()
-    alamat = models.CharField(max_length=1000)
-    email = models.CharField(max_length=1000)
+    alamat = models.CharField(max_length=1000, null=True)
+    email = models.CharField(max_length=1000, null=True)
     doswal = models.CharField(max_length=1000, null=True)
     status = models.CharField(
         max_length=100, choices=pilihan_status, default='Aktif')
