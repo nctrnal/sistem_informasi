@@ -1,4 +1,14 @@
-Internal Server Error: /tahun_ajaran/tahun_ajaran/tambah/
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>nama<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Internal Server Error: /cuti/
 Traceback (most recent call last):
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
@@ -6,9 +16,12 @@ Traceback (most recent call last):
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\UANG\Sistem Informasi\sistem_informasi\tahun_ajaran\views.py", line 66, in tambah_tahunajaran
-    return render(request, 'tambah_tahunajaran.html', context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\UANG\Sistem Informasi\sistem_informasi\cuti\views.py", line 17, in cuti
+    return render(request, 'cuti.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\shortcuts.py", line 24, in render
     content = loader.render_to_string(template_name, context, request, using=using)
               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,6 +70,12 @@ Traceback (most recent call last):
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
     return SafeString("".join([node.render_annotated(context) for node in self]))
                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\template\base.py", line 966, in render_annotated
     return self.render(context)
            ^^^^^^^^^^^^^^^^^^^^
@@ -370,3 +389,21 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'mahasiswa-list' not found. 'mahasiswa-list' is not a valid view function or pattern name.
 Form tidak valid: <ul class="errorlist"><li>nim<ul class="errorlist"><li>Ensure this value is less than or equal to 2147483647.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>jurusan<ul class="errorlist"><li>This field is required.</li></ul></li><li>nim<ul class="errorlist"><li>Ensure this value is less than or equal to 2147483647.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>syarat_cuti<ul class="errorlist"><li>File extension �jpeg� is not allowed. Allowed extensions are: pdf.</li></ul></li></ul>
+Form tidak valid: <ul class="errorlist"><li>syarat_cuti<ul class="errorlist"><li>File extension �txt� is not allowed. Allowed extensions are: pdf.</li></ul></li></ul>
+Internal Server Error: /mahasiswa/mahasiswa/1111111111/detail/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\mahasiswa\views.py", line 79, in detail_mahasiswa
+    return render(request, 'mahasiswa_detail.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: mahasiswa_detail.html
