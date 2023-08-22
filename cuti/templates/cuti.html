@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+    <!-- Add this block to display messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- End of messages block -->
+
+<h1>Daftar {{ title }}</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Nama</th>
+                <th>Tanggal Mulai</th>
+                <th>Lama Cuti</th>
+                <th>Keterangan</th>
+                <th>Status Cuti</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cuti in cuti_list %}
+            <tr>
+                <td>{{ cuti.nama }}</td>
+                <td>{{ cuti.tanggal_mulai }}</td>
+                <td>{{ cuti.lama_cuti }}</td>
+                <td>{{ cuti.keterangan }}</td>
+                <td>{{ cuti.status_cuti }}</td>
+                <td>
+                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ajukan_cuti' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+</body>
+
+{% endblock content %}
+
