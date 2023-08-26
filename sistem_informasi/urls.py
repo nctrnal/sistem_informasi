@@ -18,7 +18,7 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('cuti/', include('cuti.urls')),
     path('nilai/', include('nilai.urls')),
-    path('krs/', include('krs.urls')),
+    # path('krs/', include('krs.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
