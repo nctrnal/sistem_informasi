@@ -1,15 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Mahasiswa
 from .forms import MahasiswaForm
-from django.contrib import messages
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-# from angkatan.models import Angkatan
->>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
-=======
-# from angkatan.models import Angkatan
->>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
+from django.contrib import messages 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 import logging

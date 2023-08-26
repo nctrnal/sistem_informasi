@@ -24,7 +24,7 @@ class MataKuliah(models.Model):
     nama_mata_kuliah = models.CharField(max_length=100, choices=pilihan_matkul)
     jumlah_sks = models.IntegerField()
     program_studi = models.CharField(max_length=50)
-    tipe = models.CharField(max_length=100, blank=True)
+    tipe = models.CharField(max_length=100, blank=True, choices=pilihan_tipe, default="")
     kuota = models.IntegerField(blank=True, default=30)
     kelas = models.CharField(max_length=100, default="A")
     nama_pengajar = models.ForeignKey(

@@ -5,7 +5,7 @@ from dosen_pengajar.models import DosenPengajarModel
 class MataKuliahForm(forms.ModelForm):
     class Meta:
         model = MataKuliah
-        fields = ['kode_mata_kuliah', 'nama_mata_kuliah', 'jumlah_sks', 'program_studi', 'kelas', 'nama_pengajar']
+        fields = ['kode_mata_kuliah', 'nama_mata_kuliah', 'jumlah_sks', 'program_studi', 'kelas', 'nama_pengajar', 'tipe', 'kuota']
         widgets = {
             'kode_mata_kuliah': forms.TextInput(attrs={'class': 'form-control'}),
             'nama_mata_kuliah': forms.Select(attrs={'class': 'form-control'}),
@@ -13,4 +13,6 @@ class MataKuliahForm(forms.ModelForm):
             'program_studi': forms.TextInput(attrs={'class': 'form-control'}),
             'kelas': forms.TextInput(attrs={'class': 'form-control'}),
             'nama_pengajar': forms.Select(attrs={'class': 'form-control'}),
+            'tipe': forms.Select(attrs={'class': 'form-control'}),
+            'kuota': forms.NumberInput(attrs={'class': 'form-control'}),
         }
