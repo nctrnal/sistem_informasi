@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  #jk {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #status {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Tambah Mahasiswa</h3>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if errors %}
+    <ul class="errorlist">
+        {% for field_errors in errors %}
+        {% for error in field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+              {{ form.nim.label_tag }}
+              {{ form.nim }}
+            </div>
+            <div class="form-group" >
+              {{ form.foto.label_tag }}
+              {{ form.foto }}
+            </div>
+            <div class="form-group">
+              {{ form.nama.label_tag }}
+              {{ form.nama }}
+            </div>
+            <div class="form-group">
+              {{ form.jurusan.label_tag }}
+              {{ form.jurusan }}
+            </div>
+            <div class="form-group">
+              {{ form.tempat_lahir.label_tag }}
+              {{ form.tempat_lahir }}
+            </div>
+            <div class="form-group">
+              {{ form.tanggal_lahir.label_tag }}
+              {{ form.tanggal_lahir }}
+            </div>
+            <div class="form-group">
+              {{ form.jk.label_tag }}
+              {{ form.jk }}
+            </div>
+            <div class="form-group">
+              {{ form.status.label_tag }}
+              {{ form.status }}
+            </div>
+            <div class="form-group">
+              {{ form.angkatan.label_tag }}
+              {{ form.angkatan }}
+            </div>
+            <div class="form-group">
+              {{ form.alamat.label_tag }}
+              {{ form.alamat }}
+            </div>
+            <div class="form-group">
+              {{ form.email.label_tag }}
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              {{ form.semester.label_tag }}
+              {{ form.semester }}
+            </div>
+            <div class="form-group">
+              {{ form.doswal.label_tag }}
+              {{ form.doswal }}
+            </div>
+            <div class="form-group">
+              {{ form.agama.label_tag }}
+              {{ form.agama }}
+            </div>
+            <div class="form-group">
+              {{ form.beasiswa.label_tag }}
+              {{ form.beasiswa }}
+            </div>
+          </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+    <a href="{% url 'mahasiswa' %}" class="btn btn-primary"> Kembali</a>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const angkatanField = document.getElementById('angkatan');  // Ganti dengan ID field angkatan sesuai dengan template Anda
+          const semesterField = document.getElementById('semester');  // Ganti dengan ID field semester sesuai dengan template Anda
+          
+          // Tambahkan event listener ke field angkatan
+          angkatanField.addEventListener('change', function () {
+              const tahunAngkatan = parseInt(angkatanField.value);
+              const tahunSekarang = new Date().getFullYear();
+              const selisihTahun = tahunSekarang - tahunAngkatan;
+              const jumlahSemester = selisihTahun * 2;
+      
+              semesterField.value = jumlahSemester;
+          });
+      });
+    </script>
+    
+
+{% endblock content %}

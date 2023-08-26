@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Daftar Mata Kuliah</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Kode Mata Kuliah</th>
+                <th>Nama Mata Kuliah</th>
+                <th>Jumlah SKS</th>
+                <th>Program Studi</th>
+                <th>Kelas</th>
+                <th>Nama Pengajar</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mata_kuliah in matkul_list %}
+            <tr>
+                <td>{{ mata_kuliah.kode_mata_kuliah }}</td>
+                <td>{{ mata_kuliah.nama_mata_kuliah }}</td>
+                <td>{{ mata_kuliah.jumlah_sks }}</td>
+                <td>{{ mata_kuliah.program_studi }}</td>
+                <td>{{ mata_kuliah.kelas }}</td>
+                <td>{{ mata_kuliah.nama_pengajar }}</td>
+                <td>
+                    <a href="{% url 'edit_nilai' edit_nilai.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'tambah_mata_kuliah' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+
+    {% endblock content %}

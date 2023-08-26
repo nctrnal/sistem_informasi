@@ -1,0 +1,185 @@
+{% extends "base.html" %} {% block content %}
+<form action="{% url 'matakuliah' %}" method="GET">
+<div class="box-container">
+    <div class="box">
+        <input form-check-input type="radio" name="jurusan" value="" id="semua_jurusan"
+        {% if not request.GET.jurusan %} checked{% endif %}>
+        <label form-check-label for="semua_jurusan">Semua Jurusan</label>
+    </div>
+
+
+    <div class="box">
+        <input form-check-input type="radio" name="jurusan" value="Teknologi Informasi" id="Teknologi Informasi" 
+        {% if request.GET.jurusan == 'Teknologi Informasi' %} checked{% endif %}>
+        <label form-check-label for="Teknologi Informasi">Teknologi Informasi</label>
+    </div>
+
+    <div class="box">
+        <input form-check-input type="radio" name="jurusan" value="Akuntansi" id="Akuntansi" 
+        {% if request.GET.jurusan == 'Akuntansi' %} checked{% endif %}>
+        <label form-check-label for="Akuntansi">Akuntansi</label>
+    </div>
+
+    <div class="box">
+        <input form-check-input type="radio" name="jurusan" value="Mekatronika" id="Mekatronika"
+        {% if request.GET.jurusan == 'Mekatronika' %} checked{% endif %}>
+        <label form-check-label for="Mekatronika">Mekatronika</label>
+    </div>
+
+    <div class="box">
+        <input form-check-input type="radio" name="jurusan" value="Teknik Elektro" id="Teknik Elektro"
+        {% if request.GET.jurusan == 'Teknik Elektro' %} checked{% endif %}>
+        <label form-check-label for="Teknik Elektro">Teknik Elektro</label>
+    </div>
+</div>
+
+<button type="submit" class="btn btn-primary d-flex align-items-center justify-content-between mt-2 mb-2">Submit <ion-icon name="arrow-forward-outline"></ion-icon> </button>
+</form>
+
+
+    <!-- Add this block to display messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- End of messages block -->
+
+<h1>Daftar Mata Kuliah</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Kode Mata Kuliah</th>
+                <th>Nama Mata Kuliah</th>
+                <th>Jumlah SKS</th>
+                <th>Program Studi</th>
+                <th>Kelas</th>
+                <th>Nama Pengajar</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mata_kuliah in mata_kuliah_list %}
+            <tr>
+                <td>{{ mata_kuliah.kode_mata_kuliah }}</td>
+                <td>{{ mata_kuliah.nama_mata_kuliah }}</td>
+                <td>{{ mata_kuliah.jumlah_sks }}</td>
+                <td>{{ mata_kuliah.program_studi }}</td>
+                <td>{{ mata_kuliah.kelas }}</td>
+                <td>{{ mata_kuliah.nama_pengajar }}</td>
+                <td>
+                    <a href="{% url 'edit_mata_kuliah' mata_kuliah.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                    <a href="#" class="hapus-matkul-link btn btn-danger" data-pk="{{ mata_kuliah.pk }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'tambah_mata_kuliah' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+
+    <!-- Bootstrap Modal untuk konfirmasi hapus -->
+    <div class="modal fade" id="hapusMatkulModal" tabindex="-1" role="dialog" aria-labelledby="hapusMatkulModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hapusMatkulModalLabel">Konfirmasi Hapus Mata Kuliah</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda yakin ingin menghapus mata kuliah ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="hapusMatkulButton">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tambahkan JavaScript untuk menampilkan modal konfirmasi hapus saat tombol hapus diklik
+        const hapusMatkulLinks = document.querySelectorAll('.hapus-matkul-link');
+        const hapusMatkulModal = document.getElementById('hapusMatkulModal');
+        const hapusMatkulButton = document.getElementById('hapusMatkulButton');
+
+        hapusMatkulLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const pk = this.getAttribute('data-pk');
+                hapusMatkulButton.setAttribute('data-pk', pk);
+                $('#hapusMatkulModal').modal('show');
+            });
+        });
+
+        hapusMatkulButton.addEventListener('click', function () {
+            const pk = this.getAttribute('data-pk');
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = `{% url 'hapus_matkul' 0 %}`.replace('0', pk);
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = 'csrfmiddlewaretoken';
+            csrfToken.value = '{{ csrf_token }}';
+            form.appendChild(csrfToken);
+            document.body.appendChild(form);
+            form.submit();
+        });
+
+        //untuk table
+(function() {
+	'use strict';
+
+var TableFilter = (function() {
+ var Arr = Array.prototype;
+		var input;
+  
+		function onInputEvent(e) {
+			input = e.target;
+			var table1 = document.getElementsByClassName(input.getAttribute('data-table'));
+			Arr.forEach.call(table1, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, filter);
+				});
+			});
+		}
+
+		function filter(row) {
+			var text = row.textContent.toLowerCase();
+       //console.log(text);
+      var val = input.value.toLowerCase();
+      //console.log(val);
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = onInputEvent;
+				});
+			}
+		};
+ 
+	})();
+
+  console.log(document.readyState);
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+      console.log(document.readyState);
+			TableFilter.init();
+		}
+	});
+  
+ TableFilter.init(); 
+})();
+    </script>
+</body>
+
+{% endblock content %}

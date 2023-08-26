@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Daftar {{ title }}</h1>
+<br>
+<!-- Add this block to display messages -->
+{% if messages %}
+<div class="bg-success" style="width: fit-content">
+    {% for message in messages %}
+    <z>{{ message }}</z>
+    {% endfor %}
+</div>
+{% endif %}
+<!-- End of messages block -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Nama</th>
+                <th>Tanggal Mulai</th>
+                <th>Lama Cuti</th>
+                <th>Keterangan</th>
+                <th>Status Cuti</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cuti in cuti_list %}
+            <tr>
+                <td>{{ cuti.nama }}</td>
+                <td>{{ cuti.tanggal_mulai }}</td>
+                <td>{{ cuti.lama_cuti }}</td>
+                <td>{{ cuti.keterangan }}</td>
+                <td class="{% if cuti.status_cuti == 'Disetujui' %}bg-success{% elif cuti.status_cuti == 'Ditolak' %}bg-danger{% else %}bg-yellow{% endif %}">{{ cuti.status_cuti }}</td>
+                <td>
+                    <a href="{% url 'proses_cuti' cuti.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ajukan_cuti' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+</body>
+
+{% endblock content %}
+

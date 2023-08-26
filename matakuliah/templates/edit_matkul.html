@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Edit MataKuliah</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+              {{ form.kode_mata_kuliah.label_tag }}
+              {{ form.kode_mata_kuliah }}
+            </div>
+            <div class="form-group">
+              {{ form.nama_mata_kuliah.label_tag }}
+              {{ form.nama_mata_kuliah }}
+            </div>
+            <div class="form-group">
+              {{ form.jumlah_sks.label_tag }}
+              {{ form.jumlah_sks }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.program_studi.id_for_label }}">Program Studi</label>
+              <select name="{{ form.program_studi.name }}" id="{{ form.program_studi.id_for_label }}" class="form-control">
+                <option value="">Pilih Program Studi</option>
+                <option value="Teknologi Informasi">Teknologi Informasi</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Mekatronika">Mekatronika</option>
+                <option value="Teknik Elektro">Teknik Elektro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              {{ form.kelas.label_tag }}
+              {{ form.kelas }}
+            </div>
+            <div class="form-group">
+              {{ form.nama_pengajar.label_tag }}
+              {{ form.nama_pengajar }}
+            </div>
+          </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+    <a href="{% url 'matakuliah' %}">Kembali ke Daftar Mata Kuliah</a>
+
+{% endblock content %}

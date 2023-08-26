@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  #jk {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #status {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Tambah {{ title }}</h3>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+              {{ form.nrp.label_tag }}
+              {{ form.nrp }}
+            </div>
+            <div class="form-group">
+              {{ form.nama_doswal.label_tag }}
+              {{ form.nama_doswal }}
+            </div>
+            <div class="form-group">
+              {{ form.jk.label_tag }}
+              {{ form.jk }}
+            </div>
+            <div class="form-group">
+              {{ form.prodi.label_tag }}
+              {{ form.prodi }}
+            </div>
+            <div class="form-group">
+              {{ form.kelas.label_tag }}
+              {{ form.kelas }}
+            </div>
+          </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+    <a href="{% url 'dosenwali' %}" class="btn btn-primary"><< Kembali</a>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Edit Pengajuan Cuti</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+                {{ form.tanggal_mulai.label_tag }}
+                {{ form.tanggal_mulai }}
+              </div>
+              <div class="form-group">
+                {{ form.lama_cuti.label_tag }}
+                {{ form.lama_cuti }}
+              </div>
+              <div class="form-group">
+                {{ form.keterangan.label_tag }}
+                {{ form.keterangan }}
+              </div>
+              <div class="form-group">
+                {{ form.status_cuti.label_tag }}
+                {{ form.status_cuti }}
+              </div>
+              <div class="form-group">
+                {{ form.syarat_cuti.label_tag }}
+                {{ form.syarat_cuti }}
+              </div>
+          </div>
+        <div class="card-footer"></div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+    <a href="{% url 'cuti' %}">Kembali ke Daftar Angkatan</a>
+
+{% endblock content %}

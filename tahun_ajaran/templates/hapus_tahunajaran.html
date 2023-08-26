@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Konfirmasi Hapus Tahun Ajaran</h1>
+<p>Anda yakin ingin menghapus tahun ajaran "{{ tahunajaran.tahun_ajaran }}"?</p>
+<form id="hapus-tahunajaran-form" method="post">
+  {% csrf_token %}
+  <button type="submit">Hapus</button>
+</form>
+<a href="{% url 'tahunajaran' %}">Batal</a>
+
+<script>
+  // Tambahkan JavaScript untuk mengirim POST request saat tombol hapus diklik
+  const hapusForm = document.getElementById("hapus-tahunajaran-form");
+  hapusForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const confirmDelete = confirm(
+      "Apakah Anda yakin ingin menghapus tahun ajaran ini?"
+    );
+    if (confirmDelete) {
+      fetch('{% url "hapus_tahunajaran" tahunajaran.pk %}', {
+        method: "POST",
+        headers: { "X-CSRFToken": "{{ csrf_token }}" },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
+            alert("Tahun ajaran berhasil dihapus.");
+            window.location.href = '{% url "tahunajaran" %}';
+          } else {
+            alert("Terjadi kesalahan saat menghapus tahun ajaran.");
+          }
+        })
+        .catch((error) => {
+          alert("Terjadi kesalahan saat menghapus tahun ajaran.");
+          console.error(error);
+        });
+    }
+  });
+</script>
+
+{% endblock content %}

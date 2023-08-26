@@ -1,0 +1,143 @@
+{% extends "base.html" %} {% block content %}
+
+    <!-- Add this block to display messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- End of messages block -->
+
+<h1>Daftar Angkatan</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr data-widget="expandable-table" aria-expanded="false">
+                <th>Angkatan</th>
+                <th>Kurikulum</th>
+                <th>Created At</th>
+                <th><ion-icon name="pencil-outline"></ion-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for angkatan in angkatan_list %}
+            <tr>
+                <td>{{ angkatan.nama_angkatan }}</td>
+                <td>{{ angkatan.kurikulum }}</td>
+                <td>{{ angkatan.created_at }}</td>
+                <td>
+                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
+                    <a href="{% url 'edit_angkatan' angkatan.pk %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'tambah_angkatan' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+
+    <!-- Bootstrap Modal untuk konfirmasi hapus -->
+    <div class="modal fade" id="hapusAngkatanModal" tabindex="-1" role="dialog" aria-labelledby="hapusAngkatanModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hapusAngkatanModalLabel">Konfirmasi Hapus Angkatan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda yakin ingin menghapus angkatan ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="hapusAngkatanButton">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tambahkan JavaScript untuk menampilkan modal konfirmasi hapus saat tombol hapus diklik
+        const hapusAngkatanLinks = document.querySelectorAll('.hapus-angkatan-link');
+        const hapusAngkatanModal = document.getElementById('hapusAngkatanModal');
+        const hapusAngkatanButton = document.getElementById('hapusAngkatanButton');
+
+        hapusAngkatanLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const pk = this.getAttribute('data-pk');
+                hapusAngkatanButton.setAttribute('data-pk', pk);
+                $('#hapusAngkatanModal').modal('show');
+            });
+        });
+
+        hapusAngkatanButton.addEventListener('click', function () {
+            const pk = this.getAttribute('data-pk');
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = `{% url 'hapus_angkatan' 0 %}`.replace('0', pk);
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = 'csrfmiddlewaretoken';
+            csrfToken.value = '{{ csrf_token }}';
+            form.appendChild(csrfToken);
+            document.body.appendChild(form);
+            form.submit();
+        });
+
+        //untuk table
+(function() {
+	'use strict';
+
+var TableFilter = (function() {
+ var Arr = Array.prototype;
+		var input;
+  
+		function onInputEvent(e) {
+			input = e.target;
+			var table1 = document.getElementsByClassName(input.getAttribute('data-table'));
+			Arr.forEach.call(table1, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, filter);
+				});
+			});
+		}
+
+		function filter(row) {
+			var text = row.textContent.toLowerCase();
+       //console.log(text);
+      var val = input.value.toLowerCase();
+      //console.log(val);
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = onInputEvent;
+				});
+			}
+		};
+ 
+	})();
+
+  console.log(document.readyState);
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+      console.log(document.readyState);
+			TableFilter.init();
+		}
+	});
+  
+ TableFilter.init(); 
+})();
+    </script>
+</body>
+
+{% endblock content %}
+

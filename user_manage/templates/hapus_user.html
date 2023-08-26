@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Konfirmasi Hapus User</h1>
+    <p>Anda yakin ingin menghapus user "{{ user.username }}"?</p>
+    <form id="hapus-user-form" method="post">
+        {% csrf_token %}
+        <button type="submit">Hapus</button>
+    </form>
+    <a href="{% url 'user_list' %}">Batal</a>
+
+    <script>
+        // Tambahkan JavaScript untuk mengirim POST request saat tombol hapus diklik
+        const hapusForm = document.getElementById('hapus-user-form');
+        hapusForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const confirmDelete = confirm("Apakah Anda yakin ingin menghapus user ini?");
+            if (confirmDelete) {
+                fetch('{% url "hapus_user" user.pk %}', {
+                    method: 'POST',
+                    headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert("User berhasil dihapus.");
+                        window.location.href = '{% url "user-list" %}';
+                    } else {
+                        alert("Terjadi kesalahan saat menghapus user.");
+                    }
+                })
+                .catch(error => {
+                    alert("Terjadi kesalahan saat menghapus user.");
+                    console.error(error);
+                });
+            }
+        });
+    </script>
+
+{% endblock content %}

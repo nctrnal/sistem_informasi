@@ -1,0 +1,82 @@
+/* styles.css */
+
+/* USER */
+/* image user */
+#foto_tbl {
+  width: 50px;
+  height: 50px;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  font-size: 50px; /* Sesuaikan ukuran font sesuai keinginan Anda */
+  color: black; /* Ubah warna font menjadi hitam */
+}
+
+.table {
+  vertical-align: middle;
+  text-align: center;
+  table-layout: auto;
+  border: 10px;
+}
+
+tbody td {
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* FORM */
+.form-control {
+  width: 400px;
+}
+
+#tanggal_lahir {
+  width: 300px;
+}
+
+#jk {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#status {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* --------------------------- */
+
+.box-container {
+  display: flex; /* Menggunakan flexbox untuk membuat semua box-container berada dalam satu baris */
+  align-items: center; /* Mengatur posisi vertikal elemen di dalam flex container */
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block; /* Membuat setiap box berada dalam satu baris */
+  margin-right: 10px; /* Memberikan sedikit jarak antar box */
+}
+
+/* Untuk status dosen pengajar, aktif atau tidak */
+.green-background {
+  background-color: green;
+}
+
+.red-background {
+  background-color: red;
+}
+
+/* end style untuk status pengajar */
+
