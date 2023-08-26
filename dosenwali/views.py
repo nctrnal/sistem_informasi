@@ -5,6 +5,8 @@ from mahasiswa.models import Mahasiswa
 from dosen_pengajar.models import DosenPengajarModel
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from authentication.models import CustomUser
+from django.http import HttpResponseForbidden
 
 
 @login_required(login_url='authentication:login')
