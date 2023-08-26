@@ -3,6 +3,10 @@ from .models import Mahasiswa
 from .forms import MahasiswaForm
 from django.contrib import messages
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+# from angkatan.models import Angkatan
+>>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
 =======
 # from angkatan.models import Angkatan
 >>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c

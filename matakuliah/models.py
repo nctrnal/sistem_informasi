@@ -16,6 +16,7 @@ class MataKuliah(models.Model):
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     pilihan_tipe = {
         ("Teori", "Teori"),
         ("Praktikum", "Praktikum")
@@ -23,14 +24,20 @@ class MataKuliah(models.Model):
 
 =======
 >>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
+=======
+>>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
     kode_mata_kuliah = models.CharField(max_length=10)
     nama_mata_kuliah = models.CharField(max_length=100, choices=pilihan_matkul)
     jumlah_sks = models.IntegerField()
     program_studi = models.CharField(max_length=50)
 <<<<<<< HEAD
+<<<<<<< HEAD
     tipe = models.CharField(max_length=100, blank=True)
     kuota = models.IntegerField(blank=True, default=30)
     kelas = models.CharField(max_length=100, default="A")
+=======
+    kelas = models.CharField(max_length=10)
+>>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
 =======
     kelas = models.CharField(max_length=10)
 >>>>>>> e44767ec837788c4ef383bfceb6177d8c04b4d7c
