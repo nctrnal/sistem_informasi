@@ -46,3 +46,24 @@ def ajukan_cuti(request):
     }
     return render(request, 'ajukan_cuti.html', context)
 
+def proses_cuti(request, pk):
+    cuti = get_object_or_404(CutiModel, pk=pk)
+    logger = logging.getLogger(__name__)
+
+    if request.method == 'POST':
+        form = CutiForm(request.POST,request.FILES, instance=cuti)
+        if form.is_valid():
+            form.save()
+            return redirect('cuti')
+        else:
+            logger.error('Form tidak valid: %s', form.errors)
+    else:
+        form = CutiForm(instance=cuti)
+
+    # Konteks
+    context = {
+        'title': 'Pengajuan Cuti',
+        'form': form,
+    }
+
+    return render(request, 'proses_cuti.html', context)

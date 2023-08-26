@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user_manage',
     'tahun_ajaran',
     'cuti',
+    'nilai',
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser" 

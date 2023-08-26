@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 class CustomUser(AbstractUser):
-    USERNAME_FIELD = 'NIM'
+    USERNAME_FIELD = 'NIM'    
     
     role = models.CharField(max_length=50)
     NIM = models.CharField(max_length=20, unique=True)

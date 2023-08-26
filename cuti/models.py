@@ -7,7 +7,7 @@ def user_directory_path(instance, filename):
 
 class CutiModel(models.Model):
     pilihan_status = [
-        ('Status', 'Status'),
+        ('Pending', 'Pending'),
         ('Disetujui', 'Disetujui'),
         ('Ditolak', 'Ditolak')
     ]
@@ -19,7 +19,7 @@ class CutiModel(models.Model):
     syarat_cuti = models.FileField(upload_to='uploads/cuti/')
     keterangan = models.CharField(max_length=100)
     status_cuti = models.CharField(
-        max_length=100, choices=pilihan_status, default='Status', blank=True)
+        max_length=100, choices=pilihan_status, default='Pending', blank=True)
 
     def __str__(self):
         return self.nama

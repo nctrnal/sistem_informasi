@@ -1,16 +1,16 @@
 {% extends "base.html" %} {% block content %}
 
-    <!-- Add this block to display messages -->
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <!-- End of messages block -->
-
 <h1>Daftar {{ title }}</h1>
+<br>
+<!-- Add this block to display messages -->
+{% if messages %}
+<div class="bg-success" style="width: fit-content">
+    {% for message in messages %}
+    <z>{{ message }}</z>
+    {% endfor %}
+</div>
+{% endif %}
+<!-- End of messages block -->
     <table class="table table-bordered table-hover">
         <thead>
             <tr data-widget="expandable-table" aria-expanded="false">
@@ -30,10 +30,9 @@
                 <td>{{ cuti.tanggal_mulai }}</td>
                 <td>{{ cuti.lama_cuti }}</td>
                 <td>{{ cuti.keterangan }}</td>
-                <td>{{ cuti.status_cuti }}</td>
+                <td class="{% if cuti.status_cuti == 'Disetujui' %}bg-success{% elif cuti.status_cuti == 'Ditolak' %}bg-danger{% else %}bg-yellow{% endif %}">{{ cuti.status_cuti }}</td>
                 <td>
-                    <a href="{% url 'cuti'  %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
-                    <a href="{% url 'cuti'  %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'proses_cuti' cuti.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
                 </td>
             </tr>
             {% endfor %}
