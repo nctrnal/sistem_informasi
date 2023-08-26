@@ -17,7 +17,11 @@ urlpatterns = [
     path('user_manage/', include('user_manage.urls')),
     path('authentication/', include('authentication.urls')),
     path('cuti/', include('cuti.urls')),
+<<<<<<< HEAD
     path('nilai/', include('nilai.urls')),
+=======
+    # path('krs/', include('krs.urls')),
+>>>>>>> 684fe95e50371f6032566c10fbeb4e23f69f69e8
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

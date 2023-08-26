@@ -27,7 +27,7 @@ class DosenPengajarModel(models.Model):
         ('Konghucu', 'Konghucu'),
     ]
 
-    nrp = models.IntegerField(primary_key=True)
+    nrp = models.CharField(primary_key=True)
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
     nama = models.CharField(max_length=100)

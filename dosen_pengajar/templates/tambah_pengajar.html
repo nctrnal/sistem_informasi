@@ -54,8 +54,14 @@
               {{ form.status }}
             </div>
             <div class="form-group">
-              {{ form.prodi.label_tag }}
-              {{ form.prodi }}
+              <label for="{{ form.prodi.id_for_label }}">Program Studi</label>
+              <select name="{{ form.prodi.name }}" id="{{ form.prodi.id_for_label }}" class="form-control">
+                <option value="">Pilih Program Studi</option>
+                <option value="Teknologi Informasi">Teknologi Informasi</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Mekatronika">Mekatronika</option>
+                <option value="Teknik Elektro">Teknik Elektro</option>
+              </select>
             </div>
             {% comment %} <div class="form-group">
               {{ form.kelas.label_tag }}

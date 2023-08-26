@@ -9,9 +9,18 @@ from django.contrib.auth.decorators import login_required
 
 
 def pengajar(request):
+    jurusan = request.GET.get('jurusan', None)
+
+    if jurusan:
+        if jurusan == 'semua_jurusan':
+            DosenPengajar_list = DosenPengajarModel.objects.all()
+        else:
+            DosenPengajar_list = DosenPengajarModel.objects.filter(prodi=jurusan)
+    else:
+        DosenPengajar_list = DosenPengajarModel.objects.all()
     context = {
         'title': 'Dosen Pengajar',
-        'pengajar_list': DosenPengajarModel.objects.all()
+        'pengajar_list': DosenPengajar_list
     }
     return render(request, 'pengajar.html', context)
 

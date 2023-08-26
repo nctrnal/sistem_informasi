@@ -15,7 +15,43 @@
     }
 
 </style>
-
+<form action="{% url 'mahasiswa' %}" method="GET">
+    <div class="box-container">
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="" id="semua_jurusan"
+            {% if not request.GET.jurusan %} checked{% endif %}>
+            <label form-check-label for="semua_jurusan">Semua Jurusan</label>
+        </div>
+    
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Teknologi Informasi" id="Teknologi Informasi" 
+            {% if request.GET.jurusan == 'Teknologi Informasi' %} checked{% endif %}>
+            <label form-check-label for="Teknologi Informasi">Teknologi Informasi</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Akuntansi" id="Akuntansi" 
+            {% if request.GET.jurusan == 'Akuntansi' %} checked{% endif %}>
+            <label form-check-label for="Akuntansi">Akuntansi</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Mekatronika" id="Mekatronika"
+            {% if request.GET.jurusan == 'Mekatronika' %} checked{% endif %}>
+            <label form-check-label for="Mekatronika">Mekatronika</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Teknik Elektro" id="Teknik Elektro"
+            {% if request.GET.jurusan == 'Teknik Elektro' %} checked{% endif %}>
+            <label form-check-label for="Teknik Elektro">Teknik Elektro</label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-between mt-2 mb-2">Submit <ion-icon name="arrow-forward-outline"></ion-icon> </button>
+    </form>
+    
 
     <!-- Add this block to display messages -->
     {% if messages %}
@@ -59,17 +95,19 @@
                 <td class="{% if mahasiswa.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ mahasiswa.status }}</strong></td>
                 <td>{{ mahasiswa.beasiswa }}</td>
                 <td>
-                    <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
-                    <a href="{% url 'edit_mahasiswa' mahasiswa.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="hapus-mahasiswa-link btn btn-danger" data-pk="{{ mahasiswa.pk }}"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'detail_mahasiswa' mahasiswa.pk %}" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
+                    
+                        <a href="{% url 'edit_mahasiswa' mahasiswa.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="#" class="hapus-mahasiswa-link btn btn-danger" data-pk="{{ mahasiswa.pk }}"><i class="fas fa-trash-alt"></i></a>
+                    
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'tambah_mahasiswa' %}" class="add-button">
-        <ion-icon name="add-circle-outline"></ion-icon>
-    </a>
+        <a href="{% url 'tambah_mahasiswa' %}" class="add-button">
+            <ion-icon name="add-circle-outline"></ion-icon>
+        </a>
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusMahasiswaModal" tabindex="-1" role="dialog" aria-labelledby="hapusMahasiswaModalLabel" aria-hidden="true">

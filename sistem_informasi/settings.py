@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     'user_manage',
     'tahun_ajaran',
     'cuti',
+<<<<<<< HEAD
     'nilai',
+=======
+    # 'krs',
+>>>>>>> 684fe95e50371f6032566c10fbeb4e23f69f69e8
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser" 
@@ -93,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sistem_informasi',
         'USER': 'postgres',
-        'PASSWORD': 'najib123',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',         # Ganti 'localhost' dengan host basis data Anda
         'PORT': '5432',
     }

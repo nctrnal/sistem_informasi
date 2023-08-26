@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Detail Mahasiswa</h3>
+
+      </div>
+      <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="post">
+                  <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="/images/{{ mahasiswa.foto }}" alt="{{ mahasiswa.nama }}'s photo">
+                    <span class="username">
+                      <p> {{ mahasiswa.nama }}</p>
+                    </span>
+                    <span class="description">Nim : {{ mahasiswa.nim }}</span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <strong>Jurusan:</strong> {{ mahasiswa.jurusan }} 
+                  </p>
+                  <p>
+                    <strong>Jenis Kelamin:</strong> {{ mahasiswa.jk }} 
+                  </p>
+                  <p>
+                    <strong>Tempat/Tanggal Lahir:</strong> {{ mahasiswa.tempat_lahir }} / {{ mahasiswa.tanggal_lahir }} 
+                  </p>
+                  <p>
+                    <strong>Alamat:</strong> {{ mahasiswa.alamat }} 
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {{ mahasiswa.email }} 
+                  </p>
+                  <p>
+                    <strong>Doswal:</strong> {{ mahasiswa.doswal }}
+                  </p>
+                  <p>
+                    <strong>Status:</strong> {{ mahasiswa.status }} 
+                  </p>
+                  <p>
+                    <strong>Angkatan:</strong> {{ mahasiswa.angkatan }} 
+                  </p>
+                  <p>
+                    <strong>Semester:</strong> {{ mahasiswa.semester }} 
+                  </p>
+                  <p>
+                    <strong>Agama:</strong> {{ mahasiswa.agama }} 
+                  </p>
+                  <p>
+                    <strong>Beasiswa:</strong> {{ mahasiswa.beasiswa }}
+                  </p>
+                </div>
+            </div>
+          </div>  
+              
+          <p>
+            <a href="{% url 'mahasiswa' %}" class="link-black text-sm"><i class="fa fa-arrow-left"></i> Kembali ke Daftar Mahasiswa</a>
+          </p>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+  </section>
+
+{% endblock content %}

@@ -1,5 +1,6 @@
 from django.db import models
 from angkatan.models import Angkatan
+from authentication.models import CustomUser
 
 def user_directory_path(instance, filename):
     # Untuk menyimpan foto dengan nama berdasarkan username pengguna
@@ -25,8 +26,14 @@ class Mahasiswa(models.Model):
         ('Budha', 'Budha'),
         ('Konghucu', 'Konghucu'),
     ]
+    pilihan_jurusan = [
+        ('Teknologi Informasi', 'Teknologi Informasi'),
+        ('Akuntansi', 'Akuntansi'),
+        ('Teknik Elektro', 'Teknik Elektro'),
+        ('Mekatronika', 'Mekatronika'),
+    ]
 
-    nim = models.IntegerField(primary_key=True)
+    nim = models.CharField(primary_key=True) 
     foto = models.ImageField(upload_to='uploads/profile/',
                              default='default.png')
     nama = models.CharField(max_length=100)
@@ -43,6 +50,8 @@ class Mahasiswa(models.Model):
     agama = models.CharField(
         max_length=50, choices=pilihan_agama, default='Islam')
     beasiswa = models.CharField(max_length=20)
+    jurusan = models.CharField(
+        max_length=50, choices=pilihan_jurusan, default='Teknologi Informasi')
 
     def __str__(self):
         return self.mahasiswa

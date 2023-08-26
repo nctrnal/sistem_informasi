@@ -8,19 +8,41 @@ from django.contrib.auth.decorators import login_required
 import logging
 import string
 import random
+from authentication.models import CustomUser
+from django.contrib.auth.models import Group
+from django.http import HttpResponseForbidden
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from django.contrib.auth import get_user_model
+
+CustomUser = get_user_model()
 
 
 @login_required(login_url='authentication:login')
 
 def mahasiswa(request):
+    jurusan = request.GET.get('jurusan', None)
+
+    if jurusan:
+        if jurusan == 'semua_jurusan':
+            mahasiswa_list = Mahasiswa.objects.all()
+        else:
+            mahasiswa_list = Mahasiswa.objects.filter(jurusan=jurusan)
+    else:
+        mahasiswa_list = Mahasiswa.objects.all()
+
     context = {
         'title': 'Mahasiswa',
-        'mahasiswa_list': Mahasiswa.objects.all()
+        'mahasiswa_list': mahasiswa_list
     }
     return render(request, 'mahasiswa.html', context)
 
 
 def edit_mahasiswa(request, pk):
+    custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
+    if custom_user.role != 'akademik':
+        return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
+    
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
 
     if request.method == 'POST':
@@ -41,6 +63,10 @@ def edit_mahasiswa(request, pk):
 
 
 def hapus_mahasiswa(request, pk):
+    custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
+    if custom_user.role != 'akademik':
+        return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
+    
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
 
     if request.method == 'POST':
@@ -51,8 +77,10 @@ def hapus_mahasiswa(request, pk):
 
     return render(request, 'hapus_mahasiswa_confirm.html', {'mahasiswa': mahasiswa})
 
-
 def tambah_mahasiswa(request):
+    # custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
+    # if custom_user.role != 'akademik':
+    #     return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
 
     logger = logging.getLogger(__name__)
     if request.method == 'POST':
@@ -98,3 +126,9 @@ def tambah_mahasiswa(request):
         'form': form,
     }
     return render(request, 'tambah_mahasiswa.html', context)
+
+def detail_mahasiswa(request, pk):
+    mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
+    context = {'title': 'Mahasiswa',
+        'mahasiswa': mahasiswa}
+    return render(request, 'detail_mahasiswa.html', context)
