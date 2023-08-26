@@ -49,11 +49,8 @@ INSTALLED_APPS = [
     'user_manage',
     'tahun_ajaran',
     'cuti',
-<<<<<<< HEAD
     'nilai',
-=======
-    # 'krs',
->>>>>>> 684fe95e50371f6032566c10fbeb4e23f69f69e8
+    'krs',
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser" 
