@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
+{% if dosen %}
 <h1>Daftar Mata Kuliah</h1>
     <table class="table table-bordered table-hover">
         <thead>
@@ -29,8 +30,9 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'tambah_mata_kuliah' %}" class="add-button">
-        <ion-icon name="add-circle-outline"></ion-icon>
-    </a>
+
+{% else %}
+    <p>Anda bukan dosen</p>
+{% endif %}
 
     {% endblock content %}

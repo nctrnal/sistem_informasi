@@ -1,4 +1,6 @@
 #gambar
 images/
 
+#py
 __pycache__/
+__init__.py

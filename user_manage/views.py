@@ -4,6 +4,7 @@ from user_manage.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseForbidden
+import logging
 
 
 # @login_required(login_url='authentication:login')
@@ -20,16 +21,23 @@ def add_user(request):
     # custom_user = CustomUser.objects.get(username=request.user.username)
     # if custom_user.role != 'akademik':
     #     return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
+
+    logger = logging.getLogger(__name__)
     
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('user-list')
+        else:
+            logger.error('Form tidak valid: %s', form.errors)
     else:
         form = UserCreationForm()
     
-    context = {'form': form}
+    context = {
+        'form': form,
+        'title': 'Admin'
+        }
     return render(request, 'add_user.html', context)
 
 def hapus_user(request, pk):
