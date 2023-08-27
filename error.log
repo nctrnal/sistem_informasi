@@ -5026,3 +5026,689 @@ Traceback (most recent call last):
   File "D:\Kuliah\Coding\Project\Sistem Informasi\env\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'edit_nilai' not found. 'edit_nilai' is not a valid view function or pattern name.
+Internal Server Error: /matakuliah/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\matakuliah\views.py", line 29, in matakuliah
+    return render(request, 'matakuliah.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+Internal Server Error: /matakuliah/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\matakuliah\views.py", line 29, in matakuliah
+    return render(request, 'matakuliah.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+Internal Server Error: /nilai/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 16, in nilai
+    return render(request, 'daftar.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+Internal Server Error: /nilai/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 16, in nilai
+    return render(request, 'daftar.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column matakuliah_matakuliah.tipe does not exist
+LINE 1: ...ah_sks", "matakuliah_matakuliah"."program_studi", "matakulia...
+                                                             ^
+
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 9, in krs
+    mahasiswa = Mahasiswa.objects.get(nim=user.nim)  # Ganti dengan cara mengakses NIM user
+  File "D:\joki\djangoProject\env\lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'CustomUser' object has no attribute 'nim'
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 9, in krs
+    mahasiswa = Mahasiswa.objects.get(nim=user.nim)  # Ganti dengan cara mengakses NIM user
+  File "D:\joki\djangoProject\env\lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'CustomUser' object has no attribute 'nim'
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 28, in krs
+    form = TambahKRSForm(initial={'mahasiswa': mahasiswa})
+NameError: name 'TambahKRSForm' is not defined
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 23, in krs
+    KRS.objects.create(mahasiswa=mahasiswa, mata_kuliah=matakuliah)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<Mahasiswa: asu>": "KRS.mahasiswa" must be a "CustomUser" instance.
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "krs_krs" does not exist
+LINE 1: INSERT INTO "krs_krs" ("mahasiswa_id", "mata_kuliah_id") VAL...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 23, in krs
+    KRS.objects.create(mahasiswa=mahasiswa, mata_kuliah=matakuliah)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "krs_krs" does not exist
+LINE 1: INSERT INTO "krs_krs" ("mahasiswa_id", "mata_kuliah_id") VAL...
+                    ^
+
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 23, in krs
+    KRS.objects.create(mahasiswa=mahasiswa, mata_kuliah=matakuliah)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<Mahasiswa: asu>": "KRS.mahasiswa" must be a "CustomUser" instance.
+Internal Server Error: /krs/view_krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 38, in view_krs
+    krs_entries = KRS.objects.filter(mahasiswa=mahasiswa)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\query.py", line 1534, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\query.py", line 1565, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\query.py", line 1453, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\query.py", line 1264, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\query.py", line 1241, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "asu": Must be "CustomUser" instance.
+Internal Server Error: /krs/view_krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 41, in view_krs
+    return render(request, 'view_all_krs.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: view_all_krs.html
+Internal Server Error: /krs/view_krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "krs_krs" does not exist
+LINE 1: ...s"."mahasiswa_id", "krs_krs"."mata_kuliah_id" FROM "krs_krs"
+                                                              ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 41, in view_krs
+    return render(request, 'view_krs.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "krs_krs" does not exist
+LINE 1: ...s"."mahasiswa_id", "krs_krs"."mata_kuliah_id" FROM "krs_krs"
+                                                              ^
+
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 40, in krs
+    return render(request, 'krs.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 484, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '().nama' from 'form.mahasiswa.value().nama'
+form tidak valid: <ul class="errorlist"><li>status<ul class="errorlist"><li>This field is required.</li></ul></li><li>mahasiswa<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>status<ul class="errorlist"><li>This field is required.</li></ul></li><li>mahasiswa<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 46, in krs
+    return render(request, 'krs.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 484, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' di acc' from 'belum di acc'
+form tidak valid: <ul class="errorlist"><li>status<ul class="errorlist"><li>This field is required.</li></ul></li><li>mahasiswa<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mahasiswa<ul class="errorlist"><li>Select a valid choice. That choice is not one of the available choices.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mahasiswa<ul class="errorlist"><li>Select a valid choice. That choice is not one of the available choices.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mahasiswa<ul class="errorlist"><li>Select a valid choice. That choice is not one of the available choices.</li></ul></li></ul>
+Internal Server Error: /krs/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\krs\views.py", line 31, in krs
+    initial_data = {'mahasiswa': request.user.mahasiswa}  # Ganti dengan relasi yang benar
+  File "D:\joki\djangoProject\env\lib\site-packages\django\utils\functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'CustomUser' object has no attribute 'mahasiswa'
+form tidak valid: <ul class="errorlist"><li>mahasiswa<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>This field is required.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>
+form tidak valid: <ul class="errorlist"><li>mata_kuliah<ul class="errorlist"><li>“” is not a valid value.</li></ul></li></ul>

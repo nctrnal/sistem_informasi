@@ -32,7 +32,7 @@ class MahasiswaForm(forms.ModelForm):
             'status': forms.Select(attrs={'class': 'form-control', 'id': 'status'}),
             'alamat': forms.TextInput(attrs={'class': 'form-control', 'id': 'alamat'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'id': 'email'}),
-            'angkatan': forms.ModelChoiceField(queryset=Angkatan.objects.all()),
+            # 'angkatan': forms.ModelChoiceField(queryset=Angkatan.objects.all()),
             # 'semester': forms.TextInput(attrs={'class': 'form-control', 'id': 'semester'}),
             'agama': forms.Select(attrs={'class': 'form-control', 'id': 'agama'}),
             'beasiswa': forms.TextInput(attrs={'class': 'form-control', 'id': 'beasiswa'}),
