@@ -1,27 +1,10 @@
 from django.db import models
+from krs.models import KRS, MataKuliah
 
-class NilaiModel(models.Model):
-
-    pilihan_nilai = {
-        ('A', 'A'),
-        ('AB', 'AB'),
-        ('B', 'B'),
-        ('BC', 'BC'),
-        ('C', 'C'),
-        ('D', 'D'),
-        ('E', 'E'),
-    }
-
-    id = models.AutoField(primary_key=True)
-    nama_mahasiswa = models.CharField(max_length=100)
-    nama_pengajar = models.CharField(max_length=100)
-    matakuliah = models.CharField(max_length=100)
-    jk = models.CharField(max_length=1)
-    semester = models.CharField(max_length=100)
-    angkatan = models.CharField(max_length=100)
-    nilai = models.CharField(max_length=2, choices=pilihan_nilai, default='E', blank=True)
-
+class Nilai(models.Model):
+    krs = models.ForeignKey(KRS, on_delete=models.CASCADE, related_name='nilais')  # Menggunakan related_name 'nilais'
+    matkul = models.ForeignKey(MataKuliah, on_delete=models.CASCADE)
+    nilai = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __str__(self):
-        return self.nama_mahasiswa
-
+        return f"{self.krs.mahasiswa} - {self.matkul.nama} - Nilai: {self.nilai}"

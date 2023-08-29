@@ -22,7 +22,7 @@ class MataKuliah(models.Model):
 
     kode_mata_kuliah = models.CharField(max_length=10)
     nama_mata_kuliah = models.CharField(max_length=100, choices=pilihan_matkul)
-    jumlah_sks = models.IntegerField()
+    jumlah_sks = models.IntegerField(default=0)
     program_studi = models.CharField(max_length=50)
     tipe = models.CharField(max_length=100, blank=True, choices=pilihan_tipe, default="")
     kuota = models.IntegerField(blank=True, default=30)

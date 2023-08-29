@@ -1,196 +1,43 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
+<h2>Daftar KRS </h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Tempat/Tanggal Lahir</th>
+            <th>Angkatan</th>
+            <th>JK</th>
+            <th>Agama</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for krs in krs_list %}
+        <tr data-url="{% url 'konfirmasi_krs' krs.id %}" style="cursor: pointer;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ krs.mahasiswa.nim }}</td>
+            <td>{{ krs.mahasiswa.nama}}</td>
+            <td>{{ krs.mahasiswa.tempat_lahir }}/{{ krs.mahasiswa.tanggal_lahir }}</td>
+            <td>{{ krs.mahasiswa.angkatan}}</td>
+            <td>{{ krs.mahasiswa.jk}}</td>
+            <td>{{ krs.mahasiswa.agama}}</td>
+            <td>{{ krs.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-    <style>
-        .green-background {
-            background-color: green;
-        }
-    
-        .red-background {
-            background-color: red;
-        }
-    
-        tbody td {
-            vertical-align: middle;
-            text-align: center;
-        }
-    
-    </style>
-    <form action="{% url 'mahasiswa' %}" method="GET">
-        <div class="box-container">
-            <div class="box">
-                <input form-check-input type="radio" name="jurusan" value="" id="semua_jurusan"
-                {% if not request.GET.jurusan %} checked{% endif %}>
-                <label form-check-label for="semua_jurusan">Semua Jurusan</label>
-            </div>
-        
-        
-            <div class="box">
-                <input form-check-input type="radio" name="jurusan" value="Teknologi Informasi" id="Teknologi Informasi" 
-                {% if request.GET.jurusan == 'Teknologi Informasi' %} checked{% endif %}>
-                <label form-check-label for="Teknologi Informasi">Teknologi Informasi</label>
-            </div>
-        
-            <div class="box">
-                <input form-check-input type="radio" name="jurusan" value="Akuntansi" id="Akuntansi" 
-                {% if request.GET.jurusan == 'Akuntansi' %} checked{% endif %}>
-                <label form-check-label for="Akuntansi">Akuntansi</label>
-            </div>
-        
-            <div class="box">
-                <input form-check-input type="radio" name="jurusan" value="Mekatronika" id="Mekatronika"
-                {% if request.GET.jurusan == 'Mekatronika' %} checked{% endif %}>
-                <label form-check-label for="Mekatronika">Mekatronika</label>
-            </div>
-        
-            <div class="box">
-                <input form-check-input type="radio" name="jurusan" value="Teknik Elektro" id="Teknik Elektro"
-                {% if request.GET.jurusan == 'Teknik Elektro' %} checked{% endif %}>
-                <label form-check-label for="Teknik Elektro">Teknik Elektro</label>
-            </div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-between mt-2 mb-2">Submit <ion-icon name="arrow-forward-outline"></ion-icon> </button>
-        </form>
-        
-    
-        <!-- Add this block to display messages -->
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        <!-- End of messages block -->
-    
-    <h1>Daftar {{ title }}</h1>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr data-widget="expandable-table" aria-expanded="false">
-                    <th>Nama</th>
-                    <th>Matakuliah</th>
-                    <th>Status</th>
-                    <th><ion-icon name="pencil-outline"></ion-icon>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for krs in krs_list %}
-                <tr>
-                    <td>{{ krs.mahasiswa }}</td>
-                    <td>{{ krs.mata_kuliah }}</td>
-                    <td>{{ krs.status }}</td>
-                    <td>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
-                        
-                            <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                            <a href="#" class="hapus-mahasiswa-link btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                        
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    
-        <!-- Bootstrap Modal untuk konfirmasi hapus -->
-        <div class="modal fade" id="hapusMahasiswaModal" tabindex="-1" role="dialog" aria-labelledby="hapusMahasiswaModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="hapusMahasiswaModalLabel">Konfirmasi Hapus Mahasiswa</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Anda yakin ingin menghapus Mahasiswa ini?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-danger" id="hapusMahasiswaButton">Hapus</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <script>
-            // Tambahkan JavaScript untuk menampilkan modal konfirmasi hapus saat tombol hapus diklik
-            const hapusMatkulLinks = document.querySelectorAll('.hapus-mahasiswa-link');
-            const hapusMatkulModal = document.getElementById('hapusMahasiswaModal');
-            const hapusMatkulButton = document.getElementById('hapusMahasiswaButton');
-    
-            hapusMatkulLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const pk = this.getAttribute('data-pk');
-                    hapusMatkulButton.setAttribute('data-pk', pk);
-                    $('#hapusMahasiswaModal').modal('show');
-                });
-            });
-    
-            hapusMatkulButton.addEventListener('click', function () {
-                const pk = this.getAttribute('data-pk');
-                const form = document.createElement('form');
-                form.method = 'post';
-                form.action = `{% url 'hapus_mahasiswa' 0 %}`.replace('0', pk);
-                const csrfToken = document.createElement('input');
-                csrfToken.type = 'hidden';
-                csrfToken.name = 'csrfmiddlewaretoken';
-                csrfToken.value = '{{ csrf_token }}';
-                form.appendChild(csrfToken);
-                document.body.appendChild(form);
-                form.submit();
-            });
-    
-            //untuk table
-    (function() {
-        'use strict';
-    
-    var TableFilter = (function() {
-     var Arr = Array.prototype;
-            var input;
-      
-            function onInputEvent(e) {
-                input = e.target;
-                var table1 = document.getElementsByClassName(input.getAttribute('data-table'));
-                Arr.forEach.call(table1, function(table) {
-                    Arr.forEach.call(table.tBodies, function(tbody) {
-                        Arr.forEach.call(tbody.rows, filter);
-                    });
-                });
-            }
-    
-            function filter(row) {
-                var text = row.textContent.toLowerCase();
-           //console.log(text);
-          var val = input.value.toLowerCase();
-          //console.log(val);
-                row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-            }
-    
-            return {
-                init: function() {
-                    var inputs = document.getElementsByClassName('table-filter');
-                    Arr.forEach.call(inputs, function(input) {
-                        input.oninput = onInputEvent;
-                    });
-                }
-            };
-     
-        })();
-    
-      console.log(document.readyState);
-        document.addEventListener('readystatechange', function() {
-            if (document.readyState === 'complete') {
-          console.log(document.readyState);
-                TableFilter.init();
-            }
+<script>
+    document.querySelectorAll('[data-url]').forEach(item => {
+        item.addEventListener('click', event => {
+            window.location.href = event.currentTarget.getAttribute('data-url');
         });
-      
-     TableFilter.init(); 
-    })();
-        </script>
-    
+    });
+</script>
+
 {% endblock content %}
