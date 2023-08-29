@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <h2>Masukkan nilai untuk KRS: {{ krs.mahasiswa }} - {{ krs.mata_kuliah }}</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Mata Kuliah</th>
+                    <th>Nilai</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for matkul, nilai in  matkul_krs %}
+                    <tr>
+                        <td>{{ matkul.nama }}</td>
+                        <td>
+                            <input type="text" name="{{ matkul.kode }}" id="{{ matkul.kode }}"
+                                   value="{{ nilai.nilai }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <a href="{% url 'daftar_krs' %}">Kembali ke Daftar KRS</a>
+{% endblock content %}

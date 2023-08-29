@@ -1,38 +1,29 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-{% if dosen %}
-<h1>Daftar Mata Kuliah</h1>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr data-widget="expandable-table" aria-expanded="false">
-                <th>Kode Mata Kuliah</th>
-                <th>Nama Mata Kuliah</th>
-                <th>Jumlah SKS</th>
-                <th>Program Studi</th>
-                <th>Kelas</th>
-                <th>Nama Pengajar</th>
-                <th><ion-icon name="pencil-outline"></ion-icon>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mata_kuliah in matkul_list %}
-            <tr>
-                <td>{{ mata_kuliah.kode_mata_kuliah }}</td>
-                <td>{{ mata_kuliah.nama_mata_kuliah }}</td>
-                <td>{{ mata_kuliah.jumlah_sks }}</td>
-                <td>{{ mata_kuliah.program_studi }}</td>
-                <td>{{ mata_kuliah.kelas }}</td>
-                <td>{{ mata_kuliah.nama_pengajar }}</td>
-                <td>
-                    <a href="{% url 'input_nilai' mata_kuliah.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block content %}
+<h2>Daftar KRS Perlu Dinilai</h2>
 
-{% else %}
-    <p>Anda bukan dosen</p>
-{% endif %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Mahasiswa</th>
+            <th>Mata Kuliah</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for krs in krs_perlu_dinilai %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ krs.mahasiswa.nama }}</td>
+            <td>{{ krs.mata_kuliah }}</td>
+            <td>{{ krs.status }}</td>
+            <td><a href="{% url 'input_nilai' krs_id=krs.id %}" class="btn btn-primary">Input Nilai</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-    {% endblock content %}
+{% endblock content %}

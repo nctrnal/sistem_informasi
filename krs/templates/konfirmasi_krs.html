@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mahasiswa: {{ krs.mahasiswa.nama }}</p>
+<p>Nim: {{ krs.mahasiswa.nim }}</p>
+<p>Prodi: {{ krs.mahasiswa.jurusan }}</p>
+<p>Semester: {{ krs.mahasiswa.semester }}</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Mata Kuliah</th>
+            <th>Konfirmasi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="post">
+            {% csrf_token %}
+            {% for mata_kuliah in mata_kuliah_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ mata_kuliah|striptags|title }}</td>
+                <td>
+                    <input type="checkbox" name="{{ mata_kuliah }}">
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3">
+                    <button type="submit" class="btn btn-success">Konfirmasi</button>
+                </td>
+            </tr>
+        </form>
+    </tbody>
+</table>
+
+{% if total_konfirmasi == total_mata_kuliah %}
+    <form method="post" action="{% url 'konfirmasi_krs' krs.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Konfirmasi Semua</button>
+    </form>
+{% endif %}
+
+{% endblock content %}
