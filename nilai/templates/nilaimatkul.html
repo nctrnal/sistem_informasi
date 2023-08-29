@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="card card-primary">
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-footer">
+            <p>Mata Kuliah : </p>
+            <p>NRP : </p>
+            <p>Prodi : </p>
+            <p>Kelas : </p>
+            <p>SKS : </p>
+            <p>Pengajar : </p>
+        </div>
+        <table>
+          {{ formset.management_form }}
+          {% for form in formset %}
+          <tr>
+              <td>{{ form.nama_mahasiswa.label_tag }}</td>
+              <td>{{ form.nama_mahasiswa }}</td>
+              <td>{{ form.nilai.label_tag }}</td>
+              <td>{{ form.nilai }}</td>
+          </tr>
+          {% endfor %}
+      </table>
+    </form>
+</div>
+    <a href="{% url 'nilai' %}">Kembali ke Daftar Mata Kuliah</a>
+
+{% endblock content %}
