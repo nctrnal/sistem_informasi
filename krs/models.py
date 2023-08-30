@@ -6,7 +6,7 @@ class KRS(models.Model):
     mahasiswa = models.ForeignKey(Mahasiswa, on_delete=models.CASCADE)
     mata_kuliah = models.CharField(max_length=200)
     status = models.CharField(max_length=20, default='belum disetujui')
-    nilai = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)  # Contoh DecimalField untuk nilai
+    nilai = models.CharField(max_length=20, null=True, blank=True)  # Contoh DecimalField untuk nilai
 
     def __str__(self):
         return f"{self.mahasiswa} - {self.mata_kuliah}"

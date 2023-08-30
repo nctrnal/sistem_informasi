@@ -1,4 +1,4 @@
-
+from django.forms import modelformset_factory
 from django.shortcuts import render, get_object_or_404, redirect
 from krs.models import KRS, MataKuliah # Import model KRS
 from .models import Nilai  # Import model Nilai
@@ -15,19 +15,27 @@ def daftar_krs(request):
 
 def input_nilai(request, krs_id):
     krs = get_object_or_404(KRS, id=krs_id)
-    
+    mata_kuliah_list = krs.mata_kuliah.split(',')
+
     if request.method == 'POST':
-        for matkul in krs.mata_kuliah.all():
-            nilai_input = request.POST.get(matkul.kode)
-            matkul_krs = matkul  # Ganti ini dengan cara mengambil mata kuliah dari KRS yang sesuai
-            nilai, created = Nilai.objects.get_or_create(krs=krs, matkul=matkul_krs)
-            if nilai_input:
-                nilai.nilai = nilai_input
-                nilai.save()
-        return redirect('daftar_krs')
+        nilai_list = []
+        for mata_kuliah in mata_kuliah_list:
+            nilai = request.POST.get(mata_kuliah)
+            nilai_list.append(nilai)
+        
+        nilai_str = ",".join(nilai_list)
+        krs.nilai = nilai_str
+        krs.save()
+        return redirect('daftar_krs')  # Ganti 'krs_list' dengan nama URL yang sesuai
     
-    context = {
-        'title': 'Input Nilai',
-        'krs': krs,
-    }
-    return render(request, 'input_nilai.html', context)
+    nilai_formset = []
+    for mata_kuliah in mata_kuliah_list:
+        nilai_formset.append({'mata_kuliah': mata_kuliah})
+    
+    return render(request, 'input_nilai.html', {'krs': krs, 'nilai_formset': nilai_formset})
+
+
+
+
+
+

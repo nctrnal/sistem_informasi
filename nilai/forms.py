@@ -5,4 +5,4 @@ from .models import Nilai
 class NilaiForm(forms.ModelForm):
     class Meta:
         model = Nilai
-        fields = ['matkul', 'nilai']
+        fields = ['nilai']

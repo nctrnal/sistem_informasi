@@ -9998,3 +9998,747 @@ Traceback (most recent call last):
   File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 193, in render
     values = list(values)
 TypeError: 'KRS' object is not iterable
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 20, in input_nilai
+    for matkul in krs.mata_kuliah.all():
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 31, in input_nilai
+    for nilai in nilais:
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 31, in input_nilai
+    for nilai in nilais:
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 31, in input_nilai
+    for nilai in nilais:
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column nilai_nilai.matkul_id does not exist
+LINE 1: ...ELECT "nilai_nilai"."id", "nilai_nilai"."krs_id", "nilai_nil...
+                                                             ^
+
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 32, in input_nilai
+    initial_data[str(nilai.matkul.kode)] = nilai.nilai
+AttributeError: 'NoneType' object has no attribute 'kode'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 32, in input_nilai
+    initial_data[str(nilai.matkul.nama)] = nilai.nilai
+AttributeError: 'NoneType' object has no attribute 'nama'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 32, in input_nilai
+    initial_data[str(nilai.matkul.kode)] = nilai.nilai
+AttributeError: 'NoneType' object has no attribute 'kode'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 32, in input_nilai
+    initial_data[str(nilai.matkul.kode)] = nilai.nilai
+AttributeError: 'NoneType' object has no attribute 'kode'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 18, in input_nilai
+    mata_kuliah_list = krs.mata_kuliah.all()
+AttributeError: 'str' object has no attribute 'all'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: 'form[matkul.kode].value'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 34, in input_nilai
+    return render(request, 'input_nilai.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[matkul.kode].value' from 'form[matkul.kode].value'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: 'form[matkul].value'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 34, in input_nilai
+    return render(request, 'input_nilai.html', context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[matkul].value' from 'form[matkul].value'
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 28, in input_nilai
+    return render(request, 'nilai/input_nilai.html', {'form': form, 'krs': krs})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: nilai/input_nilai.html
+Internal Server Error: /nilai/input_nilai/19/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "nilai_nilai" does not exist
+LINE 1: INSERT INTO "nilai_nilai" ("krs_id", "nilai") VALUES (19, 20...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 23, in input_nilai
+    Nilai.objects.create(krs=krs, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "nilai_nilai" does not exist
+LINE 1: INSERT INTO "nilai_nilai" ("krs_id", "nilai") VALUES (19, 20...
+                    ^
+
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 31, in input_nilai
+    return render(request, 'nilai/input_nilai.html', {'formset': formset, 'krs': krs})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: nilai/input_nilai.html
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 25, in input_nilai
+    return render(request, 'input_nilai.html', {'krs': krs})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 852, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(',')' from 'krs.mata_kuliah.split(',')'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 25, in input_nilai
+    return render(request, 'input_nilai.html', {'krs': krs})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\defaulttags.py", line 852, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(',')' from 'krs.mata_kuliah.split(',')'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 26, in input_nilai
+    return render(request, 'nilai/input_nilai.html', {'krs': krs})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: nilai/input_nilai.html
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 22, in input_nilai
+    Nilai.objects.create(krs=krs, mata_kuliah=mata_kuliah, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Nilai() got unexpected keyword arguments: 'mata_kuliah'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 23, in input_nilai
+    nilai_obj = Nilai.objects.create(krs=krs, mata_kuliah=mata_kuliah, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Nilai() got unexpected keyword arguments: 'mata_kuliah'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 23, in input_nilai
+    nilai_obj = Nilai.objects.create(krs=krs, mata_kuliah=mata_kuliah, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Nilai() got unexpected keyword arguments: 'mata_kuliah'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 30, in input_nilai
+    return render(request, 'nilai/input_nilai.html', {'krs': krs, 'nilai_formset': nilai_formset})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: nilai/input_nilai.html
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 23, in input_nilai
+    Nilai.objects.create(krs=krs, mata_kuliah=mata_kuliah, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Nilai() got unexpected keyword arguments: 'mata_kuliah'
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "nilai_nilai_krs_id_key"
+DETAIL:  Key (krs_id)=(1) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 23, in input_nilai
+    Nilai.objects.create(krs=krs, mata_kuliah=mata_kuliah, nilai=nilai)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "nilai_nilai_krs_id_key"
+DETAIL:  Key (krs_id)=(1) already exists.
+
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 35, in input_nilai
+    return render(request, 'nilai/input_nilai.html', {'krs': krs, 'nilai_formset': nilai_formset})
+  File "D:\joki\djangoProject\env\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: nilai/input_nilai.html
+Internal Server Error: /nilai/input_nilai/1/
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\fields\__init__.py", line 1741, in to_python
+    decimal_value = decimal.Decimal(value)
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\joki\djangoProject\sistem_informasi\nilai\views.py", line 28, in input_nilai
+    krs.save()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1549, in execute_sql
+    sql, params = self.as_sql()
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\sql\compiler.py", line 1947, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\fields\__init__.py", line 1760, in get_db_prep_save
+    self.to_python(value), self.max_digits, self.decimal_places
+  File "D:\joki\djangoProject\env\lib\site-packages\django\db\models\fields\__init__.py", line 1743, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“AB,A,BC” value must be a decimal number.']

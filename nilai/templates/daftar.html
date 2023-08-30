@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Daftar KRS Perlu Dinilai</h2>
 
 <table class="table">
     <thead>
@@ -20,7 +19,7 @@
             <td>{{ krs.mahasiswa.nama }}</td>
             <td>{{ krs.mata_kuliah }}</td>
             <td>{{ krs.status }}</td>
-            <td><a href="{% url 'input_nilai' krs_id=krs.id %}" class="btn btn-primary">Input Nilai</a></td>
+            <td><a href="{% url 'input_nilai' krs.id %}" class="btn btn-primary">Input Nilai</a></td>
         </tr>
         {% endfor %}
     </tbody>
