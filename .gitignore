@@ -3,3 +3,5 @@ images/
 
 #py
 __pycache__/
+
+error.log
