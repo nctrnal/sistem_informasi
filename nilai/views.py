@@ -33,3 +33,9 @@ def input_nilai(request, krs_id):
         nilai_formset.append({'mata_kuliah': mata_kuliah})
     
     return render(request, 'input_nilai.html', {'krs': krs, 'nilai_formset': nilai_formset})
+
+
+
+
+
+
