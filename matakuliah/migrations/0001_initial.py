@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('kode_mata_kuliah', models.CharField(max_length=10)),
-                ('nama_mata_kuliah', models.CharField(choices=[('Sistem Informasi', 'Sistem Informasi'), ('Organisasi Arsitektur Komputer', 'Organisasi Arsitektur Komputer'), ('Algoritma Pemrograman', 'Algoritma Pemrograman'), ('Struktur Data', 'Struktur Data'), ('Desain Web', 'Desain Web'), ('Matematika Teknik', 'Matematika Teknik')], max_length=100)),
+                ('nama_mata_kuliah', models.CharField(choices=[('Organisasi Arsitektur Komputer', 'Organisasi Arsitektur Komputer'), ('Struktur Data', 'Struktur Data'), ('Algoritma Pemrograman', 'Algoritma Pemrograman'), ('Sistem Informasi', 'Sistem Informasi'), ('Matematika Teknik', 'Matematika Teknik'), ('Desain Web', 'Desain Web')], max_length=100)),
                 ('jumlah_sks', models.IntegerField(default=0)),
                 ('program_studi', models.CharField(max_length=50)),
                 ('tipe', models.CharField(blank=True, choices=[('Teori', 'Teori'), ('Praktikum', 'Praktikum')], default='', max_length=100)),
