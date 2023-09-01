@@ -45,7 +45,16 @@ def tambah_krs(request):
     return render(request, 'krs.html', context)
 
 def view_krs(request):
-    krs_list = KRS.objects.all()
+
+    jurusan = request.GET.get('jurusan', None)
+
+    if jurusan:
+        if jurusan == 'semua_jurusan':
+            krs_list = KRS.objects.all()
+        else:
+            krs_list = KRS.objects.filter(mahasiswa__jurusan=jurusan)
+    else:
+        krs_list = KRS.objects.all()
 
     context = {
         'title': 'View KRS',

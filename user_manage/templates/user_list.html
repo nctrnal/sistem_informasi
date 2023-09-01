@@ -40,9 +40,11 @@
         {% endfor %}
     </tbody>
 </table>
+{% if user.is_authenticated and user.role == "Akademik" %}
 <a href="{% url 'add-user' %}" class="add-button">
     <ion-icon name="add-circle-outline"></ion-icon>
 </a>
+{% endif %}
 
 <!-- Bootstrap Modal untuk konfirmasi hapus -->
 <div class="modal fade" id="hapusUserModal" tabindex="-1" role="dialog" aria-labelledby="hapusUserModalLabel" aria-hidden="true">
