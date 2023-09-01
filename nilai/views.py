@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from krs.models import KRS, MataKuliah # Import model KRS
 from .models import Nilai  # Import model Nilai
 from .forms import NilaiForm
-from .models import NilaiModel
+from .models import Nilai
 from django.contrib import messages
 from dosen_pengajar.models import DosenPengajarModel
 from django.contrib.auth.decorators import login_required

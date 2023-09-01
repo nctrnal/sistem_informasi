@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Daftar Mata Kuliah </h2>
+
+{% for field, errors in form.errors.items %}
+    {% for error in errors %}
+    <div class="error">{{ error }}</div>
+    {% endfor %}
+{% endfor %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Mata Kuliah</th>
+            <th>Pengajar</th>
+            <th>Kelas</th>
+            <th>SKS</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for absen in mk_diajar %}
+        <tr data-url="{% url 'input_absen' absen.id %}" style="cursor: pointer;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ absen.nama_mata_kuliah }}</td>
+            <td>{{ absen.nama_pengajar }}</td>
+            <td>{{ absen.kelas }}</td>
+            <td>{{ absen.jumlah_sks }}</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    document.querySelectorAll('[data-url]').forEach(item => {
+        item.addEventListener('click', event => {
+            window.location.href = event.currentTarget.getAttribute('data-url');
+        });
+    });
+</script>
+
+{% endblock content %}

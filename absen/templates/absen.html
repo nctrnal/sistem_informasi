@@ -1,1 +1,67 @@
-{% extends "base.html" %} {% block content %} {% endblock content %}
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Absensi Mahasiswa dan Dosen</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-group">
+               {{ form.mahasiswa }}
+            </div>
+            <div class="form-group">
+               {{ form.dosen }}
+            </div>
+            <div class="form-group">
+               {{ form.mata_kuliah }}
+            </div>
+            <div class="form-group">
+                <label for="pengajar">Dosen Pengajar</label>
+                <input type="text" class="form-control" id="pengajar" value="{{ mata_kuliah.nama_pengajar }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="kelas">Kelas</label>
+                <input type="text" class="form-control" id="kelas" value="{{ mata_kuliah.kelas }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nama_mata_kuliah">Mata Kuliah</label>
+                <input type="text" class="form-control" id="nama_mata_kuliah" value="{{ mata_kuliah.nama_mata_kuliah }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tipe">Status Pertemuan</label>
+                <input type="text" class="form-control" id="tipe" value="{{ mata_kuliah.tipe }}" readonly>
+            </div>
+            <div class="form-group">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Mahasiswa</th>
+                            <th>NIM</th>
+                            <th>Angkatan</th>
+                            <th>Kehadiran</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mhs in mahasiswa_mengambil %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ mhs.mahasiswa.nama }}</td>
+                            <td>{{ mhs.mahasiswa.nim }}</td>
+                            <td>{{ mhs.mahasiswa.angkatan }}</td>
+                            <td>
+                                {{ form.kehadiran }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
