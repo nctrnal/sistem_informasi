@@ -77,6 +77,6 @@ def tambah_pengajar(request):
 
 def detail_dosen(request, pk):
     dosen = get_object_or_404(DosenPengajarModel, pk=pk)
-    context = {'title': 'Dosen Pengajar',
+    context = {'title' : 'Dosen Pengajar',
         'dosen': dosen}
     return render(request, 'detail_dosen.html', context)
