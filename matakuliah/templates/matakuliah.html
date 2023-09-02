@@ -57,8 +57,10 @@
                 <th>Program Studi</th>
                 <th>Kelas</th>
                 <th>Nama Pengajar</th>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -70,17 +72,21 @@
                 <td>{{ mata_kuliah.program_studi }}</td>
                 <td>{{ mata_kuliah.kelas }}</td>
                 <td>{{ mata_kuliah.nama_pengajar }}</td>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <td>
                     <a href="{% url 'edit_mata_kuliah' mata_kuliah.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
                     <a href="#" class="hapus-matkul-link btn btn-danger" data-pk="{{ mata_kuliah.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% if user.is_authenticated and user.role == "Akademik" %}
     <a href="{% url 'tambah_mata_kuliah' %}" class="add-button">
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>
+    {% endif %}
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusMatkulModal" tabindex="-1" role="dialog" aria-labelledby="hapusMatkulModalLabel" aria-hidden="true">

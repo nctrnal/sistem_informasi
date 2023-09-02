@@ -75,8 +75,10 @@
                 <th>Status</th>
                 <th>Prodi</th>
                 <th>Agama</th>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -91,18 +93,22 @@
                 <td class="{% if pengajar.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ pengajar.status }}</strong></td>
                 <td>{{ pengajar.prodi }}</td>
                 <td>{{ pengajar.agama }}</td>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <td>
-                    <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
+                    <a href="{% url 'detail_pengajar' pengajar.pk %}" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
                     <a href="{% url 'edit_pengajar' pengajar.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a href="#" class="hapus-pengajar-link btn btn-danger" data-pk="{{ pengajar.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% if user.is_authenticated and user.role == "Akademik" %}
     <a href="{% url 'tambah_pengajar' %}" class="add-button">
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>
+    {% endif %}
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusPengajarModal" tabindex="-1" role="dialog" aria-labelledby="hapusPengajarModalLabel" aria-hidden="true">

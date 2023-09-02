@@ -17,8 +17,10 @@
                 <th>Angkatan</th>
                 <th>Kurikulum</th>
                 <th>Created At</th>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -27,17 +29,22 @@
                 <td>{{ angkatan.nama_angkatan }}</td>
                 <td>{{ angkatan.kurikulum }}</td>
                 <td>{{ angkatan.created_at }}</td>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <td>
                     <a href="{% url 'edit_angkatan' angkatan.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
                     <a href="{% url 'edit_angkatan' angkatan.pk %}" class="hapus-angkatan-link btn btn-danger" data-pk="{{ angkatan.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% if user.is_authenticated and user.role == "Akademik" %}
     <a href="{% url 'tambah_angkatan' %}" class="add-button">
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>
+    {% endif %}
+    
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusAngkatanModal" tabindex="-1" role="dialog" aria-labelledby="hapusAngkatanModalLabel" aria-hidden="true">

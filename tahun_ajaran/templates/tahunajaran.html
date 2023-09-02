@@ -34,8 +34,10 @@
                 <th>Tahun Ajaran</th>
                 <th>Semester</th>
                 <th>Created At</th>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -44,18 +46,22 @@
                 <td>{{ tahunajaran.tahun_ajaran }}</td>
                 <td>{{ tahunajaran.ajaran_semester }}</td>
                 <td>{{ tahunajaran.created_at }}</td>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <td>
                     <a href="#" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
                     <a href="{% url 'edit_tahunajaran' tahunajaran.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a href="#" class="hapus-tahunajaran-link btn btn-danger" data-pk="{{ tahunajaran.pk }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% if user.is_authenticated and user.role == "Akademik" %}
     <a href="{% url 'tambah_tahunajaran' %}" class="add-button">
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>
+    {% endif %}
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusTahunajaranModal" tabindex="-1" role="dialog" aria-labelledby="hapusTahunajaranModalLabel" aria-hidden="true">

@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Detail Mahasiswa</h3>
+
+      </div>
+      <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="post">
+                  <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="/images/{{ dosen.foto }}" alt="{{ dosen.nama }}'s photo">
+                    <span class="username">
+                      <p> {{ dosen.nama }}</p>
+                    </span>
+                    <span class="description">NRP : {{ dosen.nrp }}</span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <strong>Jurusan:</strong> {{ dosen.prodi }} 
+                  </p>
+                  <p>
+                    <strong>Jenis Kelamin:</strong> {% if dosen.jk == 'L' %}Laki-Laki{% else %}Perempuan{% endif %}
+                  </p>
+                  <p>
+                    <strong>Tempat/Tanggal Lahir:</strong> {{ dosen.tempat_lahir }} / {{ dosen.tanggal_lahir }} 
+                  </p>
+                  <p>
+                    <strong>Alamat:</strong> {{ dosen.alamat }} 
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {{ dosen.email }} 
+                  </p>
+                  <p>
+                    <strong>Status:</strong> {{ dosen.status }} 
+                  </p>
+                  <p>
+                    <strong>Agama:</strong> {{ dosen.agama }} 
+                  </p>
+                </div>
+            </div>
+          </div>  
+              
+          <p>
+            <a href="{% url 'dosen_pengajar' %}" class="link-black text-sm"><i class="fa fa-arrow-left"></i> Kembali ke Daftar Dosen</a>
+          </p>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+  </section>
+
+{% endblock content %}

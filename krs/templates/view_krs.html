@@ -3,7 +3,44 @@
 
 <h2>Daftar KRS </h2>
 
-<table class="table">
+<form action="{% url 'view_krs' %}" method="GET">
+    <div class="box-container">
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="" id="semua_jurusan"
+            {% if not request.GET.jurusan %} checked{% endif %}>
+            <label form-check-label for="semua_jurusan">Semua Jurusan</label>
+        </div>
+    
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Teknologi Informasi" id="Teknologi Informasi" 
+            {% if request.GET.jurusan == 'Teknologi Informasi' %} checked{% endif %}>
+            <label form-check-label for="Teknologi Informasi">Teknologi Informasi</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Akuntansi" id="Akuntansi" 
+            {% if request.GET.jurusan == 'Akuntansi' %} checked{% endif %}>
+            <label form-check-label for="Akuntansi">Akuntansi</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Mekatronika" id="Mekatronika"
+            {% if request.GET.jurusan == 'Mekatronika' %} checked{% endif %}>
+            <label form-check-label for="Mekatronika">Mekatronika</label>
+        </div>
+    
+        <div class="box">
+            <input form-check-input type="radio" name="jurusan" value="Teknik Elektro" id="Teknik Elektro"
+            {% if request.GET.jurusan == 'Teknik Elektro' %} checked{% endif %}>
+            <label form-check-label for="Teknik Elektro">Teknik Elektro</label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-between mt-2 mb-2">Submit <ion-icon name="arrow-forward-outline"></ion-icon> </button>
+    </form>
+
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>No</th>
@@ -18,7 +55,7 @@
     </thead>
     <tbody>
         {% for krs in krs_list %}
-        <tr data-url="{% url 'konfirmasi_krs' krs.id %}" style="cursor: pointer;">
+        <tr {% if user.is_authenticated and user.role == "Dosen" %}data-url="{% url 'konfirmasi_krs' krs.id %}" style="cursor: pointer;"{% endif %}>
             <td>{{ forloop.counter }}</td>
             <td>{{ krs.mahasiswa.nim }}</td>
             <td>{{ krs.mahasiswa.nama}}</td>
@@ -30,7 +67,15 @@
         </tr>
         {% endfor %}
     </tbody>
+    
 </table>
+
+{% if user.is_authenticated and user.role == "mahasiswa" %}
+    <a href="{% url 'krs' %}" class="add-button">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </a>
+{% endif %}
+
 
 <script>
     document.querySelectorAll('[data-url]').forEach(item => {

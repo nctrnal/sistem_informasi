@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Nama : {{ mahasiswa.nama }}</h3>
+<h3>Nim : {{ mahasiswa.nim }}</h3>
+<h3>Prodi : {{ mahasiswa.jurusan }}</h3>
+<h3>Angkatan : {{ mahasiswa.angkatan }}</h3>
+<h3>Semester : {{ mahasiswa.semester }}</h3>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Mata Kuliah</th>
+            <th>Nilai</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mata_kuliah, nilai in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ mata_kuliah }}</td>
+                <td>{{ nilai }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

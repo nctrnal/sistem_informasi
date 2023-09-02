@@ -77,8 +77,10 @@
                 <th>Semester</th>
                 <th>status</th>
                 <th>Beasiswa</th>
+                
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
+                {% endif %}{% if user.is_authenticated and user.role == "Akademik" %}
             </tr>
         </thead>
         <tbody>
@@ -94,6 +96,7 @@
                 <td>{{ mahasiswa.semester }}</td>
                 <td class="{% if mahasiswa.status == 'Aktif' %}green-background{% else %}red-background{% endif %}"><strong>{{ mahasiswa.status }}</strong></td>
                 <td>{{ mahasiswa.beasiswa }}</td>
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <td>
                     <a href="{% url 'detail_mahasiswa' mahasiswa.pk %}" class="btn btn-secondary"><i class="fas fa-folder-open"></i></a>
                     
@@ -101,13 +104,17 @@
                         <a href="#" class="hapus-mahasiswa-link btn btn-danger" data-pk="{{ mahasiswa.pk }}"><i class="fas fa-trash-alt"></i></a>
                     
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+        
+        {% if user.is_authenticated and user.role == "Akademik" %}
         <a href="{% url 'tambah_mahasiswa' %}" class="add-button">
             <ion-icon name="add-circle-outline"></ion-icon>
         </a>
+    {% endif %}
 
     <!-- Bootstrap Modal untuk konfirmasi hapus -->
     <div class="modal fade" id="hapusMahasiswaModal" tabindex="-1" role="dialog" aria-labelledby="hapusMahasiswaModalLabel" aria-hidden="true">
