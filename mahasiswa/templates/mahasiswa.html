@@ -77,10 +77,10 @@
                 <th>Semester</th>
                 <th>status</th>
                 <th>Beasiswa</th>
-                
+                {% if user.is_authenticated and user.role == "Akademik" %}
                 <th><ion-icon name="pencil-outline"></ion-icon>
                 </th>
-                {% endif %}{% if user.is_authenticated and user.role == "Akademik" %}
+                {% endif %}
             </tr>
         </thead>
         <tbody>
