@@ -1,4 +1,5 @@
-{% extends "base.html" %} 
+{% extends 'base.html' %}
+
 {% block content %}
 
 <div class="card card-primary">
@@ -7,16 +8,8 @@
     </div>
     <form method="post">
         {% csrf_token %}
+        {{ formset.management_form }}
         <div class="card-body">
-            <div class="form-group">
-               {{ form.mahasiswa }}
-            </div>
-            <div class="form-group">
-               {{ form.dosen }}
-            </div>
-            <div class="form-group">
-               {{ form.mata_kuliah }}
-            </div>
             <div class="form-group">
                 <label for="pengajar">Dosen Pengajar</label>
                 <input type="text" class="form-control" id="pengajar" value="{{ mata_kuliah.nama_pengajar }}" readonly>
@@ -39,21 +32,25 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Mahasiswa</th>
+                            <th>Nama Dosen</th>
                             <th>NIM</th>
                             <th>Angkatan</th>
+                            <th>Mata Kuliah</th>    
                             <th>Kehadiran</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for mhs in mahasiswa_mengambil %}
+                        {% for form in formset %}
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ mhs.mahasiswa.nama }}</td>
-                            <td>{{ mhs.mahasiswa.nim }}</td>
-                            <td>{{ mhs.mahasiswa.angkatan }}</td>
-                            <td>
-                                {{ form.kehadiran }}
-                            </td>
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ form.initial.mahasiswa }} {{ form.mahasiswa }}</td>
+                                <td>{{ form.initial.dosen }} {{ form.dosen }}</td>
+                                <td>{{ form.initial.nim_mhs }}</td>
+                                <td>{{ form.initial.angkatan }}</td>
+                                <td>{{ form.initial.mata_kuliah }} {{ form.mata_kuliah }}</td>
+                                <td>{{ form.kehadiran }}</td>
+                              </tr>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -64,4 +61,23 @@
     </form>
 </div>
 
-{% endblock content %}
+  {% if formset.non_form_errors %}
+    <div class="error">
+      {% for error in formset.non_form_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for form in formset %}
+    {% if form.errors %}
+      <div class="error">
+        {% for error in form.errors %}
+          {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+  
+  <a href="{% url 'absen' %}">Kembali ke Daftar Absen</a>
+{% endblock %}

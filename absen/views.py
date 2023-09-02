@@ -49,7 +49,6 @@ def absen(request):
 
     return render(request, 'view_absen.html', context)
 
-
 def input_absen(request, id):
     logger = logging.getLogger(__name__)
     user = request.user
@@ -61,59 +60,46 @@ def input_absen(request, id):
         dosen = None
         mata_kuliah_diajar = []
 
-    #ambil id mata kuliah yang dipilih
+    # Inisialisasi mata_kuliah_terpilih dan mahasiswa_mengambil
+    mata_kuliah_terpilih = None
+    mahasiswa_mengambil = []
+
     if id:
-        mata_kuliah_terpilih = MataKuliah.objects.get(id=id)
-    else:
-        mata_kuliah_terpilih = None
+        try:
+            mata_kuliah_terpilih = MataKuliah.objects.get(id=id)
+            # Dapatkan semua mahasiswa yang mengambil mata kuliah ini dan sudah disetujui
+            mahasiswa_mengambil = KRS.objects.filter(mata_kuliah=mata_kuliah_terpilih, status='disetujui')
+        except MataKuliah.DoesNotExist:
+            pass
 
-    #Modifikasi ini untuk mendapatkan data mahasiswa yang mengambil mata kuliah tertentu
-    if id:
-        mata_kuliah_terpilih = MataKuliah.objects.get(id=id)
-        mahasiswa_mengambil = KRS.objects.filter(mata_kuliah=mata_kuliah_terpilih, status='disetujui')
-    else:
-        mahasiswa_mengambil = []
+    AbsenFormSet = formset_factory(AbsenForm, extra=0)
 
-    if request.method == 'GET':
-        mahasiswa_awal = list(set([krs.mahasiswa.nama for krs in mahasiswa_mengambil]))
-        form = AbsenForm(initial={
-            'dosen': dosen.nrp,
-            'mahasiswa': mahasiswa_awal,  # Atau isi dengan data mahasiswa default jika ada
-            'mata_kuliah': mata_kuliah_terpilih,  # Isi dengan ID mata kuliah terpilih jika ada
-        })
+    if request.method == 'POST':
+        formset = AbsenFormSet(request.POST)
+        if formset.is_valid():
+            for form in formset:
+                kehadiran = form.cleaned_data['kehadiran']
+                mahasiswa = form.cleaned_data['mahasiswa']
 
-    elif request.method == 'POST':
-        form = AbsenForm(request.POST)
-        if form.is_valid():
-            selected_mata_kuliah = form.cleaned_data['mata_kuliah']
+                dosen_instance = DosenPengajarModel.objects.get(nrp=dosen.nrp)
 
-
-            # Loop melalui semua mata kuliah yang dipilih
-            for mata_kuliah in selected_mata_kuliah:
-                # Dapatkan semua mahasiswa yang mengambil mata kuliah ini
-                mahasiswa_mengambil = KRS.objects.filter(
-                    mata_kuliah=mata_kuliah, status='disetujui')
-
-                # Loop melalui semua mahasiswa dan simpan kehadiran mereka
-                for mahasiswa in mahasiswa_mengambil:
-                    kehadiran = form.cleaned_data['kehadiran']
-                    Absen.objects.create(dosen=dosen.nrp, mahasiswa=mahasiswa,
-                                         mata_kuliah=mata_kuliah_terpilih, kehadiran=kehadiran)
-            form.save()
+                Absen.objects.create(dosen=dosen_instance , mahasiswa=mahasiswa,
+                                     mata_kuliah=mata_kuliah_terpilih, kehadiran=kehadiran)
 
             return redirect('absen')
         else:
-            logger.error('Form tidak valid: %s', form.errors)
+            logger.error('Salah satu atau lebih formulir tidak valid.')
     else:
-        form = AbsenForm()
+        initial_data = [{'dosen': dosen, 'mahasiswa': mahasiswa.mahasiswa.nama, 'mata_kuliah': mata_kuliah_terpilih,
+                         'nim_mhs':mahasiswa.mahasiswa.nim, 'angkatan':mahasiswa.mahasiswa.angkatan}
+                        for mahasiswa in mahasiswa_mengambil]
+        formset = AbsenFormSet(initial=initial_data)
 
     context = {
         'title': 'Absen',
         'dosen': dosen,
         'mata_kuliah_diajar': mata_kuliah_diajar,
-        'form': form,
-        'mahasiswa_mengambil': mahasiswa_mengambil,
+        'formset': formset,
         'mata_kuliah': mata_kuliah_terpilih,
-
     }
     return render(request, 'absen.html', context)
