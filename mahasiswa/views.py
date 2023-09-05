@@ -39,8 +39,9 @@ def mahasiswa(request):
 
 
 def edit_mahasiswa(request, pk):
+    logger = logging.getLogger(__name__)
     custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
-    if custom_user.role != 'akademik':
+    if custom_user.role != 'Akademik':
         return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
     
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
@@ -50,6 +51,8 @@ def edit_mahasiswa(request, pk):
         if form.is_valid():
             form.save()
             return redirect('mahasiswa')
+        else:
+            logger.error('Form tidak valid: %s', form.errors)
     else:
         form = MahasiswaForm(instance=mahasiswa)
 
@@ -64,7 +67,7 @@ def edit_mahasiswa(request, pk):
 
 def hapus_mahasiswa(request, pk):
     custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
-    if custom_user.role != 'akademik':
+    if custom_user.role != 'Akademik':
         return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
     
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
@@ -89,11 +92,12 @@ def tambah_mahasiswa(request):
             mahasiswa = form.save()
 
             #ambil NIM dari objek mahasiswa
-            username = mahasiswa.nim
+            username = mahasiswa.nama
+            nim = mahasiswa.nim
 
             try:
                 CustomUser = get_user_model()
-                existing_user = CustomUser.objects.get(NIM=username)
+                existing_user = CustomUser.objects.get(NIM=nim)
                 
                 # Perbarui atribut-atribut objek existing_user dengan data yang baru.
                 existing_user.email = mahasiswa.email
@@ -105,7 +109,7 @@ def tambah_mahasiswa(request):
             except CustomUser.DoesNotExist:
                 # Buat objek CustomUser baru karena NIM belum ada.
                 password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-                custom_user = CustomUser.objects.create_user(username=username, password=password)
+                custom_user = CustomUser.objects.create_user(NIM=nim ,username=username, password=password)
                 custom_user.email = mahasiswa.email
                 custom_user.role = 'mahasiswa'  # Gantilah dengan role yang sesuai
                 custom_user.status = 'aktif'  # Gantilah dengan status yang sesuai

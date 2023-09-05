@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import CutiModel
 from .forms import CutiForm
+from django import forms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import logging
@@ -52,6 +53,10 @@ def proses_cuti(request, pk):
 
     if request.method == 'POST':
         form = CutiForm(request.POST,request.FILES, instance=cuti)
+
+        form.fields['nama'].widget = forms.HiddenInput()
+        form.fields['nama'].initial = cuti.nama
+
         if form.is_valid():
             form.save()
             return redirect('cuti')
@@ -59,6 +64,12 @@ def proses_cuti(request, pk):
             logger.error('Form tidak valid: %s', form.errors)
     else:
         form = CutiForm(instance=cuti)
+    
+    form.fields['nama'].widget.attrs['readonly'] = True
+    form.fields['tanggal_mulai'].widget.attrs['readonly'] = True
+    form.fields['lama_cuti'].widget.attrs['readonly'] = True
+    form.fields['keterangan'].widget.attrs['readonly'] = True
+    form.fields['syarat_cuti'].widget.attrs['readonly'] = True
 
     # Konteks
     context = {

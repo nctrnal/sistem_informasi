@@ -49,6 +49,7 @@ def absen(request):
 
     return render(request, 'view_absen.html', context)
 
+
 def input_absen(request, id):
     logger = logging.getLogger(__name__)
     user = request.user
@@ -68,7 +69,8 @@ def input_absen(request, id):
         try:
             mata_kuliah_terpilih = MataKuliah.objects.get(id=id)
             # Dapatkan semua mahasiswa yang mengambil mata kuliah ini dan sudah disetujui
-            mahasiswa_mengambil = KRS.objects.filter(mata_kuliah=mata_kuliah_terpilih, status='disetujui')
+            mahasiswa_mengambil = KRS.objects.filter(
+                mata_kuliah__contains=mata_kuliah_terpilih, status='disetujui')
         except MataKuliah.DoesNotExist:
             pass
 
@@ -83,7 +85,7 @@ def input_absen(request, id):
 
                 dosen_instance = DosenPengajarModel.objects.get(nrp=dosen.nrp)
 
-                Absen.objects.create(dosen=dosen_instance , mahasiswa=mahasiswa,
+                Absen.objects.create(dosen=dosen_instance, mahasiswa=mahasiswa,
                                      mata_kuliah=mata_kuliah_terpilih, kehadiran=kehadiran)
 
             return redirect('absen')
@@ -91,7 +93,7 @@ def input_absen(request, id):
             logger.error('Salah satu atau lebih formulir tidak valid.')
     else:
         initial_data = [{'dosen': dosen, 'mahasiswa': mahasiswa.mahasiswa.nama, 'mata_kuliah': mata_kuliah_terpilih,
-                         'nim_mhs':mahasiswa.mahasiswa.nim, 'angkatan':mahasiswa.mahasiswa.angkatan}
+                         'nim_mhs': mahasiswa.mahasiswa.nim, 'angkatan': mahasiswa.mahasiswa.angkatan}
                         for mahasiswa in mahasiswa_mengambil]
         formset = AbsenFormSet(initial=initial_data)
 

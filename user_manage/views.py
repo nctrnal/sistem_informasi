@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from authentication.models import CustomUser
 from user_manage.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from django.contrib import messages
 from django.http import HttpResponseForbidden
 import logging
 
 
-# @login_required(login_url='authentication:login')
+@login_required(login_url='authentication:login')
+# @permission_required('Akademik')
+# def akademik(request):
+#     user = request.user
+#     return user.role == 'Akademik'
 
+# @user_passes_test(akademik)
 def user_list(request):
     users = CustomUser.objects.all()  # Use CustomUser instead of User
     context = {

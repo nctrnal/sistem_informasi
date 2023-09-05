@@ -336,6 +336,7 @@
                   <p>Pengajuan Cuti</p>
                 </a>
               </li>
+              {% if request.user.role == 'Akademik' %}
               <li class="nav-item">
                 <a
                   href="/user_manage"
@@ -349,6 +350,7 @@
                   <p>Admin</p>
                 </a>
               </li>
+              {% endif %}
               <li class="nav-item">
                 <a href="{% url 'authentication:logout' %}" class="nav-link">
                   <img

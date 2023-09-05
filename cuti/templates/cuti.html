@@ -11,6 +11,9 @@
 </div>
 {% endif %}
 <!-- End of messages block -->
+<a href="{% url 'ajukan_cuti' %}" class="btn btn-success mb-3">Ajukan Cuti
+</a>
+<p><strong>Bagi mahasiswa yang ingin mengajukan cuti, silahkan tekan tombol "Ajukan Cuti" untuk melengkapi berkas pengajuan cuti</strong></p><br>
     <table class="table table-bordered table-hover">
         <thead>
             <tr data-widget="expandable-table" aria-expanded="false">
@@ -19,7 +22,7 @@
                 <th>Lama Cuti</th>
                 <th>Keterangan</th>
                 <th>Status Cuti</th>
-                <th><ion-icon name="pencil-outline"></ion-icon>
+                {% if request.user.role == 'Akademik' %}<th><ion-icon name="pencil-outline"></ion-icon>{% endif %}
                 </th>
             </tr>
         </thead>
@@ -31,16 +34,15 @@
                 <td>{{ cuti.lama_cuti }}</td>
                 <td>{{ cuti.keterangan }}</td>
                 <td class="{% if cuti.status_cuti == 'Disetujui' %}bg-success{% elif cuti.status_cuti == 'Ditolak' %}bg-danger{% else %}bg-yellow{% endif %}">{{ cuti.status_cuti }}</td>
+                {% if request.user.role == 'Akademik' %}
                 <td>
                     <a href="{% url 'proses_cuti' cuti.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> 
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'ajukan_cuti' %}" class="add-button">
-        <ion-icon name="add-circle-outline"></ion-icon>
-    </a>
 </body>
 
 {% endblock content %}
