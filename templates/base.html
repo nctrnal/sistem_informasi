@@ -323,6 +323,7 @@
                   <p>KRS</p>
                 </a>
               </li>
+              {% if request.user.role == 'Akademik' or request.user.role == 'Mahasiswa' %}
               <li class="nav-item">
                 <a
                   href="/cuti"
@@ -336,6 +337,7 @@
                   <p>Pengajuan Cuti</p>
                 </a>
               </li>
+              {% endif %}
               {% if request.user.role == 'Akademik' %}
               <li class="nav-item">
                 <a
