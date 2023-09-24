@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Mahasiswa
 from .forms import MahasiswaForm
-from django.contrib import messages 
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 import logging
@@ -19,7 +19,6 @@ CustomUser = get_user_model()
 
 
 @login_required(login_url='authentication:login')
-
 def mahasiswa(request):
     jurusan = request.GET.get('jurusan', None)
 
@@ -40,10 +39,11 @@ def mahasiswa(request):
 
 def edit_mahasiswa(request, pk):
     logger = logging.getLogger(__name__)
-    custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
+    custom_user = CustomUser.objects.get(
+        username=request.user.username)  # Ganti dengan field yang sesuai
     if custom_user.role != 'Akademik':
         return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
-    
+
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
 
     if request.method == 'POST':
@@ -66,10 +66,11 @@ def edit_mahasiswa(request, pk):
 
 
 def hapus_mahasiswa(request, pk):
-    custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
+    custom_user = CustomUser.objects.get(
+        username=request.user.username)  # Ganti dengan field yang sesuai
     if custom_user.role != 'Akademik':
         return HttpResponseForbidden("Anda tidak memiliki izin untuk mengakses halaman ini")
-    
+
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
 
     if request.method == 'POST':
@@ -79,6 +80,7 @@ def hapus_mahasiswa(request, pk):
         return redirect('mahasiswa')  # Redirect to the 'mahasiswa' view
 
     return render(request, 'hapus_mahasiswa_confirm.html', {'mahasiswa': mahasiswa})
+
 
 def tambah_mahasiswa(request):
     # custom_user = CustomUser.objects.get(username=request.user.username)  # Ganti dengan field yang sesuai
@@ -91,27 +93,30 @@ def tambah_mahasiswa(request):
         if form.is_valid():
             mahasiswa = form.save()
 
-            #ambil NIM dari objek mahasiswa
+            # ambil NIM dari objek mahasiswa
             username = mahasiswa.nama
             nim = mahasiswa.nim
 
             try:
                 CustomUser = get_user_model()
                 existing_user = CustomUser.objects.get(NIM=nim)
-                
+
                 # Perbarui atribut-atribut objek existing_user dengan data yang baru.
                 existing_user.email = mahasiswa.email
-                existing_user.role = 'mahasiswa'  # Gantilah dengan role yang sesuai
+                existing_user.role = 'Mahasiswa'  # Gantilah dengan role yang sesuai
                 existing_user.status = 'aktif'  # Gantilah dengan status yang sesuai
                 existing_user.save()
 
                 messages.success(request, f'Mahasiswa berhasil diperbarui')
             except CustomUser.DoesNotExist:
                 # Buat objek CustomUser baru karena NIM belum ada.
-                password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-                custom_user = CustomUser.objects.create_user(NIM=nim ,username=username, password=password)
+                # password = ''.join(random.choices(
+                #     string.ascii_letters + string.digits, k=8))
+                password = '123'
+                custom_user = CustomUser.objects.create_user(
+                    NIM=nim, username=username, password=password)
                 custom_user.email = mahasiswa.email
-                custom_user.role = 'mahasiswa'  # Gantilah dengan role yang sesuai
+                custom_user.role = 'Mahasiswa'  # Gantilah dengan role yang sesuai
                 custom_user.status = 'aktif'  # Gantilah dengan status yang sesuai
                 custom_user.save()
                 messages.success(request, f'Mahasiswa berhasil ditambahkan')
@@ -123,7 +128,6 @@ def tambah_mahasiswa(request):
     else:
         form = MahasiswaForm()
 
-
     # Konteks untuk halaman tambah_angkatan.html
     context = {
         'title': 'Mahasiswa',
@@ -131,8 +135,9 @@ def tambah_mahasiswa(request):
     }
     return render(request, 'tambah_mahasiswa.html', context)
 
+
 def detail_mahasiswa(request, pk):
     mahasiswa = get_object_or_404(Mahasiswa, pk=pk)
     context = {'title': 'Mahasiswa',
-        'mahasiswa': mahasiswa}
+               'mahasiswa': mahasiswa}
     return render(request, 'detail_mahasiswa.html', context)

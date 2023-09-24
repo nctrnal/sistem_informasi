@@ -29,7 +29,7 @@ def tambah_krs(request):
             
             krs = KRS(mahasiswa=mahasiswa, mata_kuliah=nama_mata_kuliah_str, status='belum disetujui')
             krs.save()
-            return redirect('krs')
+            return redirect('view_krs')
         else:
             logger.error('form tidak valid: %s', form.errors)
     else:
@@ -45,6 +45,27 @@ def tambah_krs(request):
     return render(request, 'krs.html', context)
 
 def view_krs(request):
+    user = request.user
+
+    #cari mahasiswa
+    try:
+        mahasiswa_krs = Mahasiswa.objects.get(nim=user.NIM)
+
+    except Mahasiswa.DoesNotExist:
+        mahasiswa_krs = None
+    
+    if mahasiswa_krs:
+        krs_diambil = KRS.objects.filter(mahasiswa_id=user.NIM)
+
+        nama_krs = []
+
+        for krs in krs_diambil:
+            nama_krs.extend(krs.mata_kuliah.split(', '))
+
+        krs_unik = KRS.objects.filter(mahasiswa_id=user.NIM)
+
+    else:
+        krs_unik = []
 
     jurusan = request.GET.get('jurusan', None)
 
@@ -59,6 +80,7 @@ def view_krs(request):
     context = {
         'title': 'View KRS',
         'krs_list': krs_list,
+        'krs_unik': krs_unik,
     }
     return render(request, 'view_krs.html', context)
 

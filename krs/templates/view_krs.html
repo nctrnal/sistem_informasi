@@ -51,11 +51,15 @@
             <th>JK</th>
             <th>Agama</th>
             <th>Status</th>
+            {% if user.is_authenticated and user.role == 'Dosen' %}
+            <th>Aksi</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
-        {% for krs in krs_list %}
-        <tr {% if user.is_authenticated and user.role == "Dosen" %}data-url="{% url 'konfirmasi_krs' krs.id %}" style="cursor: pointer;"{% endif %}>
+        {% if user.is_authenticated and user.role == 'Mahasiswa' %}
+        {% for krs in krs_unik %}
+        <tr  style="cursor: pointer;">
             <td>{{ forloop.counter }}</td>
             <td>{{ krs.mahasiswa.nim }}</td>
             <td>{{ krs.mahasiswa.nama}}</td>
@@ -66,11 +70,29 @@
             <td>{{ krs.status }}</td>
         </tr>
         {% endfor %}
+        {% endif %}
+        
+        {% if user.is_authenticated and user.role == 'Dosen' %}
+        {% for krs in krs_list %}
+        <tr  style="cursor: pointer;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ krs.mahasiswa.nim }}</td>
+            <td>{{ krs.mahasiswa.nama}}</td>
+            <td>{{ krs.mahasiswa.tempat_lahir }}/{{ krs.mahasiswa.tanggal_lahir }}</td>
+            <td>{{ krs.mahasiswa.angkatan}}</td>
+            <td>{{ krs.mahasiswa.jk}}</td>
+            <td>{{ krs.mahasiswa.agama}}</td>
+            <td>{{ krs.status }}</td>
+            <td>
+                <a href="{% url 'konfirmasi_krs' krs.id %}" class="btn btn-primary {% if krs.status == 'disetujui' %}disabled{% endif %}">Konfirmasi</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
     </tbody>
-    
 </table>
 
-{% if user.is_authenticated and user.role == "mahasiswa" %}
+{% if user.is_authenticated and user.role == "Mahasiswa" %}
     <a href="{% url 'krs' %}" class="add-button">
         <ion-icon name="add-circle-outline"></ion-icon>
     </a>

@@ -11,7 +11,7 @@ def index(request):
     total_mhs = Mahasiswa.objects.count()
     total_dosen = DosenPengajarModel.objects.count()
     prog_studi = MataKuliah.objects.values_list(
-        'program_studi', flat=True).distinct().count()
+        'nama_mata_kuliah', flat=True).distinct().count()
     mhs_aktif = Mahasiswa.objects.filter(status='Aktif').count()
 
     queryset1 = total_mhs
